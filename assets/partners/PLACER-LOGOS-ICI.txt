@@ -1,0 +1,33 @@
+📋 LOGOS PARTENAIRES À PLACER ICI
+
+Enregistrez les 5 logos que vous m'avez montrés avec ces noms EXACTS :
+
+1️⃣ saci.png
+   Logo : SACI - Le poids lourd des pièces autos
+   (Logo bleu avec lignes jaunes/oranges)
+
+2️⃣ la-transports.png
+   Logo : LA Transports
+   (Logo bleu marine avec "LA" et "Transports")
+
+3️⃣ agouest.png
+   Logo : AG OUEST CONSTRUCTION
+   (Logo orange/marron avec pelleteuse)
+
+4️⃣ ebsr.png
+   Logo : EBSR
+   (Logo avec texture bois et feuille verte)
+
+5️⃣ culture-media.png
+   Logo : Culture MEDIA / CMN
+   (Logo noir/rouge/jaune avec "Culture MEDIA NEWS")
+
+6️⃣ ville-slm.png (optionnel)
+   Logo : Ville de Saint-Laurent du Maroni
+
+📍 Emplacement : /Users/studiojls/Downloads/GEST-SIMPLE-main/soholang-cup/assets/partners/
+
+✅ Format recommandé : PNG avec fond transparent
+✅ Taille : 300-500px de largeur
+
+Une fois placés, rafraîchissez votre navigateur (Cmd + R)

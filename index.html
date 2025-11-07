@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soholang CUP 2025 - Tournoi de Noël à Saint-Laurent du Maroni</title>
+    <meta name="description" content="Tournoi de football Soholang CUP du 26 au 28 décembre 2025 à Saint-Laurent du Maroni. Organisé par Guyane Event's. 16 équipes - Inscriptions ouvertes !">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="print.css" media="print">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="assets/logo.png" alt="Guyane Event's" class="logo" onerror="this.style.display='none'">
+                <span class="brand-text">SOHOLANG CUP</span>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#accueil" class="nav-link active">Accueil</a></li>
+                <li><a href="#tournoi" class="nav-link">Le Tournoi</a></li>
+                <li><a href="#infos" class="nav-link">Informations</a></li>
+                <li><a href="#recompenses" class="nav-link">Récompenses</a></li>
+                <li><a href="#partenaires" class="nav-link">Partenaires</a></li>
+                <li><a href="about.html" class="nav-link">À propos</a></li>
+                <li><a href="contact.html" class="nav-link btn-contact">Contact & Inscription</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-overlay"></div>
+        
+        <!-- Ballon animé avec rebonds -->
+        <div class="bouncing-ball">⚽</div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">ÉDITION N°1</div>
+            <h1 class="hero-title">
+                <span class="hero-title-main">SOHOLANG</span>
+                <span class="hero-title-sub">CUP</span>
+            </h1>
+            <p class="hero-subtitle">Guyane Event's Présente</p>
+            <div class="hero-date">
+                <div class="date-box">
+                    <svg class="date-calendar-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5zm2 4h10v2H7v-2z"/>
+                    </svg>
+                    <span class="date-number">26</span>
+                    <span class="date-separator">•</span>
+                    <span class="date-number">27</span>
+                    <span class="date-separator">•</span>
+                    <span class="date-number">28</span>
+                </div>
+                <div class="date-month">DÉCEMBRE 2025</div>
+            </div>
+            
+            <!-- Compte à Rebours -->
+            <div class="countdown-container hero-countdown">
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days">00</span>
+                        <span class="countdown-label">Jours</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">00</span>
+                        <span class="countdown-label">Heures</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">00</span>
+                        <span class="countdown-label">Secondes</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-location">
+                <svg class="location-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <div>
+                    <p class="location-name">Stade de la Charbonnière</p>
+                    <p class="location-city">Saint-Laurent du Maroni</p>
+                </div>
+            </div>
+            <div class="hero-actions">
+                <a href="contact.html" class="btn btn-primary btn-lg">S'inscrire maintenant</a>
+                <a href="#tournoi" class="btn btn-secondary btn-lg">En savoir plus</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Défiler vers le bas</span>
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section class="highlights">
+        <div class="container">
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <div class="highlight-icon">⚽</div>
+                    <div class="highlight-number">16</div>
+                    <div class="highlight-label">Équipes</div>
+                    <div class="highlight-desc">De tous les quartiers</div>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">📅</div>
+                    <div class="highlight-number">3</div>
+                    <div class="highlight-label">Jours</div>
+                    <div class="highlight-desc">De compétition</div>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">🏆</div>
+                    <div class="highlight-number">2000€</div>
+                    <div class="highlight-label">En récompenses</div>
+                    <div class="highlight-desc">Pour les gagnants</div>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">👥</div>
+                    <div class="highlight-number">40+</div>
+                    <div class="highlight-label">Bénévoles</div>
+                    <div class="highlight-desc">Mobilisés</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Tournament Section -->
+    <section id="tournoi" class="about-tournament">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Découvrez</span>
+                <h2 class="section-title">Le Tournoi Soholang CUP</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="tournament-content">
+                <div class="tournament-text">
+                    <p class="lead">L'association Guyane Event's organise la première édition du tournoi de Noël "Soholang CUP", qui se déroulera du <strong>26 au 28 décembre 2025</strong> sur le terrain de Charbonnière – Lamori-Cochi Maurice Moni Walter, à Saint-Laurent du Maroni.</p>
+                    
+                    <p>Cette compétition réunira <strong>16 équipes</strong> issues de tous les quartiers de la ville, dans une ambiance conviviale et festive, de <strong>8h00 à 19h00</strong> chaque jour.</p>
+                    
+                    <div class="objectives">
+                        <h3>Nos Objectifs</h3>
+                        <ul class="objectives-list">
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                </svg>
+                                Rassembler la population autour du sport
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                </svg>
+                                Favoriser la cohésion et le respect
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                </svg>
+                                Clôturer l'année dans un esprit de partage
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                                </svg>
+                                Former les arbitres locaux en situation réelle
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tournament-image">
+                    <img src="assets/partners/FLYER SOHOLANG CUP.png" alt="Flyer Soholang CUP 2025" onerror="this.src='https://images.unsplash.com/photo-1459865264687-595d652de67e?w=800'">
+                    <div class="image-caption">Affiche Officielle du Tournoi</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tournament Info Section -->
+    <section id="infos" class="tournament-info">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Détails</span>
+                <h2 class="section-title">Informations Pratiques</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="info-grid">
+                <!-- Schedule -->
+                <div class="info-card">
+                    <div class="info-icon">🕐</div>
+                    <h3>Horaires</h3>
+                    <ul>
+                        <li><strong>Ouverture:</strong> 8h00</li>
+                        <li><strong>Fermeture:</strong> 19h00</li>
+                        <li><strong>Matchs de poule:</strong> 2 × 15 minutes</li>
+                        <li><strong>Phases finales:</strong> 2 × 20 minutes</li>
+                    </ul>
+                </div>
+
+                <!-- Registration -->
+                <div class="info-card highlight-card-special">
+                    <div class="info-icon">📝</div>
+                    <h3>Inscriptions</h3>
+                    <div class="registration-box">
+                        <div class="registration-item">
+                            <span class="registration-label">Équipe Masculine</span>
+                            <span class="registration-price">450€</span>
+                            <span class="registration-detail">Par équipe (16 joueurs)</span>
+                        </div>
+                        <div class="registration-divider"></div>
+                        <div class="registration-item">
+                            <span class="registration-label">Équipe Féminine</span>
+                            <span class="registration-price">250€</span>
+                            <span class="registration-detail">Par équipe</span>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary">Inscrire mon équipe</a>
+                </div>
+
+                <!-- Services -->
+                <div class="info-card">
+                    <div class="info-icon">🍽️</div>
+                    <h3>Services sur place</h3>
+                    <ul>
+                        <li>🍔 Restauration disponible</li>
+                        <li>🏥 Stands de prévention (AIDES)</li>
+                        <li>🎮 Animations pour enfants (6-10 ans)</li>
+                        <li>🎁 Cadeaux à gagner</li>
+                        <li>💪 Démonstrations street workout</li>
+                    </ul>
+                </div>
+
+                <!-- Participants -->
+                <div class="info-card">
+                    <div class="info-icon">👥</div>
+                    <h3>Qui participe ?</h3>
+                    <ul>
+                        <li>⚽ 16 équipes de Saint-Laurent</li>
+                        <li>⚖️ 30 arbitres formés</li>
+                        <li>👦 Jeunes de l'association CCEM</li>
+                        <li>💪 Pratiquants de street workout</li>
+                        <li>🤝 Plus de 40 bénévoles</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rewards Section -->
+    <section id="recompenses" class="rewards">
+        <div class="container">
+            <div class="section-header light">
+                <span class="section-subtitle">Gagnez</span>
+                <h2 class="section-title">Récompenses du Tournoi</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="rewards-container">
+                <!-- Men's Tournament -->
+                <div class="reward-category">
+                    <h3 class="reward-category-title">🏆 Tournoi Masculin</h3>
+                    <div class="rewards-grid">
+                        <div class="reward-card first-place">
+                            <div class="reward-medal">🥇</div>
+                            <div class="reward-position">1ère Place</div>
+                            <div class="reward-prize">
+                                <span class="prize-main">1 Vache</span>
+                                <span class="prize-detail">+ 500€ + 1 Coupe</span>
+                            </div>
+                        </div>
+                        
+                        <div class="reward-card second-place">
+                            <div class="reward-medal">🥈</div>
+                            <div class="reward-position">2ème Place</div>
+                            <div class="reward-prize">
+                                <span class="prize-main">1 Cochon</span>
+                                <span class="prize-detail">+ 200€ + 1 Coupe</span>
+                            </div>
+                        </div>
+                        
+                        <div class="reward-card third-place">
+                            <div class="reward-medal">🥉</div>
+                            <div class="reward-position">3ème Place</div>
+                            <div class="reward-prize">
+                                <span class="prize-main">1 Carcasse de Mouton</span>
+                                <span class="prize-detail">+ 100€ + 1 Coupe</span>
+                            </div>
+                        </div>
+                        
+                        <div class="reward-card fourth-place">
+                            <div class="reward-medal">🏅</div>
+                            <div class="reward-position">4ème Place</div>
+                            <div class="reward-prize">
+                                <span class="prize-main">1 Carton Cuisse de Poulet</span>
+                                <span class="prize-detail">+ 50€ + 1 Coupe</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Women's Tournament -->
+                <div class="reward-category">
+                    <h3 class="reward-category-title">👸 Tournoi Féminin</h3>
+                    <div class="rewards-grid">
+                        <div class="reward-card first-place">
+                            <div class="reward-medal">🥇</div>
+                            <div class="reward-position">1ère Place</div>
+                            <div class="reward-prize">
+                                <span class="prize-main">1 Cochon</span>
+                                <span class="prize-detail">+ 300€ + 1 Coupe</span>
+                            </div>
+                        </div>
+                        
+                        <div class="reward-card second-place">
+                            <div class="reward-medal">🥈</div>
+                            <div class="reward-position">2ème Place</div>
+                            <div class="reward-prize">
+                                <span class="prize-main">1 Carton Cuisse de Poulet</span>
+                                <span class="prize-detail">+ 100€ + 1 Coupe</span>
+                            </div>
+                        </div>
+                        
+                        <div class="reward-card third-place">
+                            <div class="reward-medal">🥉</div>
+                            <div class="reward-position">3ème Place</div>
+                            <div class="reward-prize">
+                                <span class="prize-main">1 Carton Cuisse de Poulet</span>
+                                <span class="prize-detail">+ 50€ + 1 Coupe</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Women's Tournament Section -->
+    <section class="women-tournament">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Égalité & Inclusion</span>
+                <h2 class="section-title">Tournoi Féminin</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="women-tournament-content">
+                <div class="women-tournament-image">
+                    <img src="assets/women-football.jpg" alt="Tournoi Féminin - Soholang CUP" onerror="this.src='https://images.unsplash.com/photo-1624880357913-a8539238245b?w=800'">
+                    <div class="image-overlay">
+                        <div class="overlay-badge">⚽ Tournoi Féminin</div>
+                    </div>
+                </div>
+                <div class="women-tournament-text">
+                    <h3>Place aux Femmes sur le Terrain !</h3>
+                    <p class="lead">Le Soholang CUP ouvre ses portes aux équipes féminines avec un tournoi dédié et des récompenses attractives.</p>
+                    
+                    <div class="women-features">
+                        <div class="women-feature">
+                            <div class="feature-icon">💪</div>
+                            <div class="feature-content">
+                                <h4>Compétition Égalitaire</h4>
+                                <p>Même format que le tournoi masculin, avec des équipes de tous les quartiers</p>
+                            </div>
+                        </div>
+                        
+                        <div class="women-feature">
+                            <div class="feature-icon">🏆</div>
+                            <div class="feature-content">
+                                <h4>Récompenses Généreuses</h4>
+                                <p>1ère place : 1 Cochon + 300€ + 1 Coupe</p>
+                            </div>
+                        </div>
+                        
+                        <div class="women-feature">
+                            <div class="feature-icon">👥</div>
+                            <div class="feature-content">
+                                <h4>Ambiance Festive</h4>
+                                <p>Fair-play, respect et convivialité au programme</p>
+                            </div>
+                        </div>
+                        
+                        <div class="women-feature">
+                            <div class="feature-icon">💰</div>
+                            <div class="feature-content">
+                                <h4>Inscription Accessible</h4>
+                                <p>250€ par équipe - Places limitées !</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="women-cta">
+                        <a href="contact.html" class="btn btn-primary btn-lg">Inscrire mon équipe féminine</a>
+                        <p class="cta-note">Date limite d'inscription : 15 novembre 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Street Workout Section -->
+    <section id="streetworkout" class="street-workout">
+        <div class="container">
+            <div class="street-workout-content">
+                <div class="street-workout-text">
+                    <div class="section-header">
+                        <span class="section-subtitle">Animation Spéciale</span>
+                        <h2 class="section-title">💪 Démonstration, Street Workout et <span class="title-highlight-gold">Concours de Pompes</span></h2>
+                        <div class="section-divider"></div>
+                    </div>
+                    <p class="street-workout-description">
+                        Venez découvrir des <strong>démonstrations impressionnantes de street workout</strong> tout au long du tournoi ! 
+                        Des athlètes locaux vous feront vivre des performances spectaculaires mêlant force, agilité et créativité.
+                    </p>
+                    
+                    <div class="workout-features">
+                        <div class="workout-feature">
+                            <div class="workout-icon">🔥</div>
+                            <div class="workout-details">
+                                <h4>Démonstrations Live</h4>
+                                <p>Performances tout au long de la journée</p>
+                            </div>
+                        </div>
+                        <div class="workout-feature">
+                            <div class="workout-icon">💪</div>
+                            <div class="workout-details">
+                                <h4>Initiations Gratuites</h4>
+                                <p>Essayez les barres avec nos coachs</p>
+                            </div>
+                        </div>
+                        <div class="workout-feature">
+                            <div class="workout-icon">🏅</div>
+                            <div class="workout-details">
+                                <h4>Zone Street Workout</h4>
+                                <p>Espace dédié avec équipements</p>
+                            </div>
+                        </div>
+                        <div class="workout-feature workout-feature-special">
+                            <div class="workout-icon">🏆</div>
+                            <div class="workout-details">
+                                <h4>Concours de Pompes</h4>
+                                <p>Testez votre endurance et gagnez des prix !</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="workout-cta">
+                        <button onclick="openDemoModal()" class="btn btn-workout">Rejoindre les démos</button>
+                        <span class="workout-note">🎯 Ouvert à tous les niveaux</span>
+                    </div>
+                </div>
+
+                <div class="street-workout-visual">
+                    <div class="workout-image-container">
+                        <img src="assets/WhatsApp Image 2025-11-06 at 18.37.51.jpeg" alt="Athlètes Street Workout Braza" class="workout-photo">
+                    </div>
+                    <div class="workout-stats">
+                        <div class="workout-stat">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Athlètes</span>
+                        </div>
+                        <div class="workout-stat">
+                            <span class="stat-number">3h</span>
+                            <span class="stat-label">De démos</span>
+                        </div>
+                        <div class="workout-stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Gratuit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partenaires" class="partners">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Merci à nos</span>
+                <h2 class="section-title">Sponsors & Partenaires</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <img src="assets/partners/LOGO GE.jpg" alt="Guyane Event's - Organisateur" onerror="this.parentElement.innerHTML='<div class=partner-placeholder>Guyane Event\'s</div>'">
+                </div>
+                <div class="partner-card">
+                    <img src="assets/partners/logo-mairie-slm-2.png" alt="Ville de Saint-Laurent du Maroni" onerror="this.parentElement.innerHTML='<div class=partner-placeholder>Mairie SLM</div>'">
+                </div>
+                <div class="partner-card">
+                    <img src="assets/partners/WhatsApp Image 2025-09-28 à 15.59.51_65206436.jpg" alt="Partenaire" onerror="this.parentElement.innerHTML='<div class=partner-placeholder>Partenaire</div>'">
+                </div>
+                <div class="partner-card">
+                    <img src="assets/partners/WhatsApp Image 2025-09-28 à 16.01.02_bb3cea8a.jpg" alt="Partenaire" onerror="this.parentElement.innerHTML='<div class=partner-placeholder>Partenaire</div>'">
+                </div>
+                <div class="partner-card">
+                    <img src="assets/partners/WhatsApp Image 2025-09-28 à 16.01.03_30c8e664.jpg" alt="Partenaire" onerror="this.parentElement.innerHTML='<div class=partner-placeholder>Partenaire</div>'">
+                </div>
+                <div class="partner-card">
+                    <img src="assets/partners/Culture média BALCK LOGO.png" alt="Culture Media News - CMN" onerror="this.parentElement.innerHTML='<div class=partner-placeholder>Culture Media</div>'">
+                </div>
+                <div class="partner-card">
+                    <img src="assets/partners/WhatsApp Image 2025-09-28 à 15.52.38_f59f9d72.jpg" alt="SACI - Le poids lourd des pièces autos" onerror="this.parentElement.innerHTML='<div class=partner-placeholder>SACI</div>'">
+                </div>
+                <div class="partner-card">
+                    <img src="assets/partners/Logo JLS_2024.png" alt="Studio JLS - Partenaire Officiel" onerror="this.parentElement.innerHTML='<div class=partner-placeholder>JLS</div>'">
+                </div>
+                <div class="partner-card">
+                    <img src="assets/partners/WhatsApp Image 2025-11-07 at 14.27.07.jpeg" alt="Partenaire Officiel" onerror="this.parentElement.innerHTML='<div class=partner-placeholder>Partenaire</div>'">
+                </div>
+            </div>
+
+            <div class="become-partner">
+                <h3>Vous souhaitez devenir partenaire ?</h3>
+                <p>Contactez-nous pour soutenir cet événement et gagner en visibilité</p>
+                <a href="contact.html" class="btn btn-secondary">Devenir partenaire</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Prêt à participer ?</h2>
+                <p>Les inscriptions sont ouvertes ! Ne manquez pas la première édition du Soholang CUP.</p>
+                <div class="cta-actions">
+                    <a href="contact.html" class="btn btn-primary btn-lg">Inscrire mon équipe</a>
+                    <a href="tel:+594694985035" class="btn btn-secondary btn-lg">📞 +594 694 98 50 35</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Soholang CUP 2025</h4>
+                    <p>Tournoi de football organisé par l'association Guyane Event's</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+                        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153.509.5.902 1.105 1.153 1.772.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 01-1.153 1.772c-.5.509-1.105.902-1.772 1.153-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 01-1.772-1.153 4.904 4.904 0 01-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 011.153-1.772A4.897 4.897 0 015.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm6.5-.25a1.25 1.25 0 10-2.5 0 1.25 1.25 0 002.5 0zM12 9a3 3 0 110 6 3 3 0 010-6z"/></svg></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="#tournoi">Le Tournoi</a></li>
+                        <li><a href="#infos">Informations</a></li>
+                        <li><a href="#recompenses">Récompenses</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>📞 <a href="tel:+594694985035">+594 694 98 50 35</a></li>
+                        <li>📧 <a href="mailto:contact@guyanevents.com">contact@guyanevents.com</a></li>
+                        <li>📍 Saint-Laurent du Maroni, Guyane</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Horaires</h4>
+                    <p class="footer-schedule">
+                        <strong>26, 27 & 28 Décembre 2025</strong><br>
+                        8h00 - 19h00<br>
+                        Stade de la Charbonnière
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Guyane Event's. Tous droits réservés.</p>
+                <p>Conçu avec ❤️ par <a href="https://design.studiojls.com" target="_blank" class="footer-link">Studio JLS</a>, pour le Soholang CUP</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Inscription Démos Street Workout -->
+    <div id="demoModal" class="demo-modal">
+        <div class="demo-modal-content">
+            <span class="demo-modal-close" onclick="closeDemoModal()">&times;</span>
+            <div class="demo-modal-header">
+                <h2>🔥 Inscription Démos Street Workout</h2>
+                <p>Rejoignez-nous pour des démonstrations incroyables et le concours de pompes !</p>
+            </div>
+            <form id="demoRegistrationForm" class="demo-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="demoFirstName">Prénom *</label>
+                        <input type="text" id="demoFirstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="demoLastName">Nom *</label>
+                        <input type="text" id="demoLastName" name="lastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="demoPhone">Téléphone *</label>
+                        <input type="tel" id="demoPhone" name="phone" placeholder="+594 694 XX XX XX" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="demoEmail">Email</label>
+                        <input type="email" id="demoEmail" name="email" placeholder="votre@email.com">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="demoActivity">Je souhaite participer à : *</label>
+                    <select id="demoActivity" name="activity" required>
+                        <option value="">Sélectionnez une activité</option>
+                        <option value="demos">💪 Démonstrations (Spectateur)</option>
+                        <option value="initiation">🏅 Initiation (Essayer les barres)</option>
+                        <option value="concours">🏆 Concours de Pompes</option>
+                        <option value="all">🔥 Tout ! (Initiation + Concours)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="demoLevel">Votre niveau :</label>
+                    <select id="demoLevel" name="level">
+                        <option value="beginner">Débutant (J'ai envie d'essayer)</option>
+                        <option value="intermediate">Intermédiaire (Je fais du sport)</option>
+                        <option value="advanced">Confirmé (Je pratique le street workout)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="demoComments">Commentaires ou questions</label>
+                    <textarea id="demoComments" name="comments" rows="3" placeholder="Allergies, questions, motivations..."></textarea>
+                </div>
+
+                <div class="demo-info-box">
+                    <p><strong>ℹ️ Informations importantes :</strong></p>
+                    <ul>
+                        <li>✓ Participation 100% gratuite</li>
+                        <li>✓ Ouvert à tous les niveaux</li>
+                        <li>✓ Équipements fournis</li>
+                        <li>✓ Encadrement professionnel</li>
+                        <li>✓ Prix à gagner au concours de pompes</li>
+                    </ul>
+                </div>
+
+                <div class="demo-form-actions">
+                    <button type="button" onclick="closeDemoModal()" class="btn btn-secondary">Annuler</button>
+                    <button type="submit" class="btn btn-workout">🔥 M'inscrire</button>
+                </div>
+            </form>
+
+            <div id="demoSuccessMessage" class="demo-success-message">
+                <div class="success-icon">✅</div>
+                <h3>Inscription réussie !</h3>
+                <p>Merci pour votre inscription ! Nous avons hâte de vous voir aux démos de street workout.</p>
+                <p>Vous recevrez une confirmation par SMS/Email avec tous les détails.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="animations.js"></script>
+</body>
+</html>

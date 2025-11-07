@@ -1,0 +1,37 @@
+📸 IMAGES À PLACER DANS CE DOSSIER
+
+Pour que le site fonctionne correctement, placez ces images :
+
+1️⃣ FLYER DU TOURNOI (obligatoire)
+   Nom du fichier : flyer-tournament.jpg
+   Image : Le flyer officiel Soholang CUP avec toutes les infos
+   Utilisé dans : Section "Le Tournoi Soholang CUP"
+
+2️⃣ PHOTO DEMOISELLES (obligatoire)
+   Nom du fichier : women-football.jpg
+   Image : Les deux demoiselles qui jouent au football
+   Utilisé dans : Section "Tournoi Féminin"
+
+3️⃣ LOGO GUYANE EVENT'S (optionnel)
+   Nom du fichier : logo.png
+   Utilisé dans : Navigation
+
+4️⃣ PHOTO DU TERRAIN (optionnel)
+   Nom du fichier : field.jpg
+   Utilisé dans : Arrière-plan section hero
+
+5️⃣ LOGOS PARTENAIRES (optionnel)
+   Placez dans : assets/partners/
+   - ebsk.png
+   - la-transports.png
+   - saci.png
+   - cmn.png
+   - ville-slm.png
+   - aides.png
+
+⚠️ IMPORTANT :
+- Respectez exactement les noms de fichiers
+- Format recommandé : JPG pour photos, PNG pour logos
+- Taille recommandée : 1200px de largeur maximum
+
+✅ Une fois les images placées, rafraîchissez votre navigateur (Cmd + R)

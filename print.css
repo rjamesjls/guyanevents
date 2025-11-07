@@ -1,0 +1,454 @@
+/* ====================================
+   STYLES D'IMPRESSION PROFESSIONNELS
+   Pour générer un PDF parfait du site
+   ==================================== */
+
+@media print {
+    /* ====================================
+       CONFIGURATION GÉNÉRALE
+       ==================================== */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+        background: white;
+    }
+
+    /* ====================================
+       MASQUER LES ÉLÉMENTS INUTILES
+       ==================================== */
+    
+    /* Navigation */
+    nav,
+    .nav-toggle,
+    .nav-menu,
+    #navToggle,
+    #navMenu {
+        display: none !important;
+    }
+
+    /* Boutons interactifs */
+    button,
+    .btn,
+    .hero-actions,
+    .workout-cta,
+    .cta-actions,
+    .hero-scroll {
+        display: none !important;
+    }
+
+    /* Animations et ballons */
+    .bouncing-ball,
+    .diagonal-ball,
+    .floating-ball {
+        display: none !important;
+    }
+
+    /* Footer complet (gardé mais simplifié plus bas) */
+    footer .social-links,
+    footer form {
+        display: none !important;
+    }
+
+    /* ====================================
+       OPTIMISATION DES COULEURS
+       ==================================== */
+    
+    /* Conserver les couleurs de fond importantes */
+    .hero,
+    .street-workout,
+    .rewards,
+    .women-tournament {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Alléger les fonds très foncés pour économiser l'encre */
+    .hero {
+        background: linear-gradient(135deg, #003366 0%, #0077CC 100%) !important;
+    }
+
+    .rewards {
+        background: linear-gradient(135deg, #003366 0%, #0077CC 80%) !important;
+    }
+
+    /* ====================================
+       GESTION DES SAUTS DE PAGE
+       ==================================== */
+    
+    section {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    .info-card,
+    .highlight-card,
+    .reward-card,
+    .workout-feature {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    /* Force un saut de page avant certaines sections */
+    .rewards,
+    .women-tournament,
+    .partners,
+    #contact {
+        page-break-before: always;
+        break-before: page;
+    }
+
+    /* ====================================
+       HERO SECTION
+       ==================================== */
+    
+    .hero {
+        min-height: 400px !important;
+        padding: 60px 20px !important;
+        position: relative;
+    }
+
+    .hero-title {
+        font-size: 42pt !important;
+        margin-bottom: 15px !important;
+    }
+
+    .hero-subtitle {
+        font-size: 16pt !important;
+    }
+
+    .date-number {
+        font-size: 36pt !important;
+    }
+
+    /* Compte à rebours */
+    .countdown-value {
+        font-size: 32pt !important;
+    }
+
+    .countdown-label {
+        font-size: 10pt !important;
+    }
+
+    /* ====================================
+       SECTIONS HIGHLIGHTS
+       ==================================== */
+    
+    .highlights-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+        page-break-inside: avoid;
+    }
+
+    .highlight-card {
+        border: 2px solid #0077CC !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .highlight-number {
+        font-size: 32pt !important;
+    }
+
+    /* ====================================
+       INFORMATIONS PRATIQUES
+       ==================================== */
+    
+    .info-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+    }
+
+    .info-card {
+        border: 2px solid rgba(255, 255, 255, 0.3) !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+        page-break-inside: avoid;
+    }
+
+    .info-card h3 {
+        font-size: 14pt !important;
+    }
+
+    .info-card li {
+        font-size: 10pt !important;
+    }
+
+    /* ====================================
+       STREET WORKOUT
+       ==================================== */
+    
+    .street-workout-content {
+        display: block !important;
+    }
+
+    .street-workout-text,
+    .street-workout-visual {
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+
+    .workout-photo {
+        max-height: 400px !important;
+        object-fit: contain !important;
+    }
+
+    .workout-features {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+    }
+
+    .workout-feature {
+        border: 2px solid rgba(255, 255, 255, 0.4) !important;
+    }
+
+    .workout-stats {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    /* ====================================
+       RÉCOMPENSES
+       ==================================== */
+    
+    .rewards-container {
+        display: block !important;
+    }
+
+    .reward-category {
+        margin-bottom: 30px;
+        page-break-inside: avoid;
+    }
+
+    .rewards-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 15px !important;
+    }
+
+    .reward-card {
+        border: 2px solid rgba(255, 255, 255, 0.3) !important;
+        page-break-inside: avoid;
+    }
+
+    /* ====================================
+       ÉQUIPES FÉMININES
+       ==================================== */
+    
+    .women-content {
+        display: block !important;
+    }
+
+    .women-text,
+    .women-visual {
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+
+    .women-features {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px !important;
+    }
+
+    /* ====================================
+       PARTENAIRES
+       ==================================== */
+    
+    .partners-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 20px !important;
+    }
+
+    .partner-card {
+        border: 1px solid #ddd !important;
+        box-shadow: none !important;
+    }
+
+    /* ====================================
+       CONTACT
+       ==================================== */
+    
+    .contact-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 30px !important;
+    }
+
+    .contact-info h3 {
+        font-size: 14pt !important;
+    }
+
+    .contact-detail {
+        font-size: 11pt !important;
+    }
+
+    /* Masquer le formulaire */
+    .contact-form {
+        display: none !important;
+    }
+
+    /* ====================================
+       FOOTER
+       ==================================== */
+    
+    footer {
+        background: #003366 !important;
+        padding: 20px 0 !important;
+        margin-top: 40px;
+    }
+
+    .footer-content {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 20px !important;
+    }
+
+    .footer-col h3 {
+        font-size: 12pt !important;
+    }
+
+    .footer-col p,
+    .footer-col li {
+        font-size: 9pt !important;
+    }
+
+    .footer-bottom {
+        font-size: 8pt !important;
+        padding: 10px 0 !important;
+    }
+
+    /* ====================================
+       IMAGES
+       ==================================== */
+    
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+        page-break-inside: avoid;
+    }
+
+    .workout-photo,
+    .women-image,
+    .partner-logo {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* ====================================
+       TYPOGRAPHIE
+       ==================================== */
+    
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+        break-after: avoid;
+        orphans: 3;
+        widows: 3;
+    }
+
+    p, li {
+        orphans: 3;
+        widows: 3;
+    }
+
+    /* Titres de section */
+    .section-title {
+        font-size: 24pt !important;
+        margin-bottom: 10px !important;
+    }
+
+    .section-subtitle {
+        font-size: 11pt !important;
+    }
+
+    /* ====================================
+       LIENS
+       ==================================== */
+    
+    a {
+        text-decoration: none !important;
+    }
+
+    /* Afficher les URLs importantes */
+    .contact-detail a[href^="tel"]::after,
+    .contact-detail a[href^="mailto"]::after {
+        content: " (" attr(href) ")" !important;
+        font-size: 9pt !important;
+        color: #666 !important;
+    }
+
+    /* ====================================
+       CONTENEURS
+       ==================================== */
+    
+    .container {
+        max-width: 100% !important;
+        padding: 0 20px !important;
+    }
+
+    /* ====================================
+       OPTIMISATIONS FINALES
+       ==================================== */
+    
+    /* Éviter les lignes orphelines */
+    * {
+        orphans: 3;
+        widows: 3;
+    }
+
+    /* Bordures simplifiées pour économiser l'encre */
+    .info-card,
+    .highlight-card,
+    .workout-feature {
+        border-width: 1px !important;
+    }
+
+    /* Réduire les ombres */
+    * {
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    /* Exception : garder les ombres légères sur les cartes importantes */
+    .info-card,
+    .reward-card {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    /* ====================================
+       EN-TÊTE ET PIED DE PAGE
+       ==================================== */
+    
+    @page {
+        margin: 2cm;
+        size: A4;
+    }
+
+    @page :first {
+        margin-top: 1cm;
+    }
+
+    /* ====================================
+       NOTES SPÉCIALES
+       ==================================== */
+    
+    /* Ajouter "Version imprimée" en bas de la première page */
+    .hero::after {
+        content: "📄 Version imprimée - Soholang CUP 2025";
+        display: block;
+        text-align: center;
+        font-size: 9pt;
+        color: rgba(255, 255, 255, 0.7);
+        margin-top: 20px;
+    }
+}

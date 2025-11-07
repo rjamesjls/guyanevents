@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soholang CUP 2025 - Présentation Officielle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* ====================================
+           CONFIGURATION GLOBALE
+           ==================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0077CC;
+            --deep-blue: #003366;
+            --bright-blue: #00A8E8;
+            --gold: #FFD700;
+            --yellow: #FFC107;
+            --orange: #FF6B35;
+            --green: #16A34A;
+            --white: #FFFFFF;
+            --text-dark: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-dark);
+            background: white;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* ====================================
+           PAGES - Une section = Une page A4
+           ==================================== */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm;
+            margin: 0 auto 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            page-break-after: always;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page:last-child {
+            page-break-after: auto;
+        }
+
+        /* ====================================
+           PAGE 1 - COUVERTURE
+           ==================================== */
+        .cover-page {
+            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--primary-blue) 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .cover-title {
+            font-size: 72pt;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .cover-subtitle {
+            font-size: 24pt;
+            font-weight: 400;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cover-date {
+            font-size: 48pt;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 30px;
+        }
+
+        .cover-location {
+            font-size: 20pt;
+            margin-bottom: 60px;
+        }
+
+        .cover-organizer {
+            font-size: 16pt;
+            opacity: 0.8;
+            margin-top: auto;
+        }
+
+        /* ====================================
+           HEADER COMMUN
+           ==================================== */
+        .page-header {
+            border-bottom: 4px solid var(--gold);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .page-title {
+            font-size: 32pt;
+            color: var(--primary-blue);
+            font-weight: 900;
+        }
+
+        .page-subtitle {
+            font-size: 14pt;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* ====================================
+           GRILLES DE CARTES
+           ==================================== */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .card {
+            background: white;
+            border: 3px solid var(--primary-blue);
+            border-radius: 15px;
+            padding: 25px;
+            min-height: 200px;
+        }
+
+        .card-icon {
+            font-size: 48pt;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 18pt;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .card-content {
+            font-size: 11pt;
+            line-height: 1.6;
+        }
+
+        .card-number {
+            font-size: 56pt;
+            font-weight: 900;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .card-label {
+            font-size: 14pt;
+            color: #666;
+        }
+
+        /* Cartes colorées */
+        .card-green {
+            background: linear-gradient(135deg, var(--green) 0%, #22C55E 100%);
+            color: white;
+            border-color: var(--green);
+        }
+
+        .card-green .card-title {
+            color: white;
+        }
+
+        .card-yellow {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--yellow) 100%);
+            color: var(--text-dark);
+            border-color: var(--gold);
+        }
+
+        .card-yellow .card-title {
+            color: var(--text-dark);
+        }
+
+        .card-blue {
+            background: linear-gradient(135deg, var(--bright-blue) 0%, var(--primary-blue) 100%);
+            color: white;
+            border-color: var(--bright-blue);
+        }
+
+        .card-blue .card-title {
+            color: white;
+        }
+
+        .card-orange {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--yellow) 100%);
+            color: white;
+            border-color: var(--orange);
+        }
+
+        .card-orange .card-title {
+            color: white;
+        }
+
+        /* ====================================
+           LISTES
+           ==================================== */
+        .info-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-list li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 11pt;
+            line-height: 1.6;
+        }
+
+        .info-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 14pt;
+        }
+
+        /* ====================================
+           SECTION TEXTE
+           ==================================== */
+        .text-section {
+            margin: 25px 0;
+        }
+
+        .text-section h3 {
+            font-size: 16pt;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+
+        .text-section p {
+            font-size: 11pt;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* ====================================
+           TABLEAUX
+           ==================================== */
+        .rewards-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .rewards-table th {
+            background: var(--primary-blue);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 12pt;
+        }
+
+        .rewards-table td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            font-size: 11pt;
+        }
+
+        .rewards-table tr:nth-child(even) {
+            background: #f5f5f5;
+        }
+
+        .prize-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 10pt;
+        }
+
+        .first-place {
+            background: var(--gold);
+            color: var(--text-dark);
+        }
+
+        .second-place {
+            background: #C0C0C0;
+            color: var(--text-dark);
+        }
+
+        .third-place {
+            background: #CD7F32;
+            color: white;
+        }
+
+        /* ====================================
+           SECTION IMAGE
+           ==================================== */
+        .image-section {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            border: 3px solid var(--primary-blue);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .image-caption {
+            font-size: 10pt;
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* ====================================
+           FOOTER
+           ==================================== */
+        .page-footer {
+            position: absolute;
+            bottom: 20mm;
+            left: 20mm;
+            right: 20mm;
+            text-align: center;
+            font-size: 9pt;
+            color: #999;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+
+        .page-number {
+            font-weight: 700;
+        }
+
+        /* ====================================
+           STYLES D'IMPRESSION
+           ==================================== */
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+
+            .page:last-child {
+                page-break-after: auto;
+            }
+
+            @page {
+                size: A4;
+                margin: 0;
+            }
+        }
+
+        /* ====================================
+           HIGHLIGHT BOX
+           ==================================== */
+        .highlight-box {
+            background: #FFF9E6;
+            border-left: 5px solid var(--gold);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .highlight-box strong {
+            color: var(--primary-blue);
+            font-size: 12pt;
+        }
+
+        /* ====================================
+           CONTACT INFO
+           ==================================== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .contact-item {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .contact-item-icon {
+            font-size: 24pt;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .contact-item-label {
+            font-size: 10pt;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .contact-item-value {
+            font-size: 12pt;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 1 : COUVERTURE -->
+    <div class="page cover-page">
+        <div class="cover-title">SOHOLANG<br>CUP 2025</div>
+        <div class="cover-subtitle">Tournoi de Football - Noël 2025</div>
+        <div class="cover-date">26-27-28<br>DÉCEMBRE</div>
+        <div class="cover-location">📍 Stade de la Charbonnière<br>Saint-Laurent du Maroni, Guyane</div>
+        <div class="cover-organizer">Organisé par Guyane Event's</div>
+    </div>
+
+    <!-- PAGE 2 : VUE D'ENSEMBLE -->
+    <div class="page">
+        <div class="page-header">
+            <h2 class="page-title">Vue d'Ensemble</h2>
+            <p class="page-subtitle">Les chiffres clés du tournoi</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card">
+                <span class="card-number">16</span>
+                <span class="card-label">Équipes Participantes</span>
+            </div>
+            <div class="card">
+                <span class="card-number">3</span>
+                <span class="card-label">Jours de Compétition</span>
+            </div>
+            <div class="card">
+                <span class="card-number">2000€</span>
+                <span class="card-label">Prix Total</span>
+            </div>
+            <div class="card">
+                <span class="card-number">40+</span>
+                <span class="card-label">Bénévoles</span>
+            </div>
+        </div>
+
+        <div class="text-section">
+            <h3>À Propos du Tournoi</h3>
+            <p>
+                La Soholang CUP 2025 est un tournoi de football de prestige organisé pendant les fêtes de fin d'année à Saint-Laurent du Maroni, Guyane. Cet événement sportif majeur réunit 16 équipes masculines et 8 équipes féminines pour trois jours de compétition intense.
+            </p>
+            <p>
+                Organisé par l'association Guyane Event's en partenariat avec le complexe sportif de la Charbonnière, le tournoi offre une plateforme exceptionnelle pour les talents locaux et régionaux. Avec des récompenses prestigieuses incluant une vache pour l'équipe gagnante, ce tournoi est devenu un rendez-vous incontournable du football guyanais.
+            </p>
+        </div>
+
+        <div class="page-footer">
+            <span class="page-number">Page 2</span> | Soholang CUP 2025 - Présentation Officielle
+        </div>
+    </div>
+
+    <!-- PAGE 3 : INFORMATIONS PRATIQUES -->
+    <div class="page">
+        <div class="page-header">
+            <h2 class="page-title">Informations Pratiques</h2>
+            <p class="page-subtitle">Tout ce qu'il faut savoir</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card card-green">
+                <span class="card-icon">🕐</span>
+                <h3 class="card-title">Horaires</h3>
+                <ul class="info-list">
+                    <li>Jour 1 : 8h - 18h</li>
+                    <li>Jour 2 : 8h - 20h</li>
+                    <li>Jour 3 : 10h - 20h</li>
+                    <li>Finales : 18h-20h (Jour 3)</li>
+                </ul>
+            </div>
+
+            <div class="card card-yellow">
+                <span class="card-icon">📝</span>
+                <h3 class="card-title">Inscriptions</h3>
+                <div class="card-content">
+                    <strong>Tarifs :</strong><br>
+                    • Équipe complète : 450€<br>
+                    • Par joueur : 250€<br><br>
+                    <strong>Inclus :</strong><br>
+                    Maillots, arbitrage, assurance
+                </div>
+            </div>
+
+            <div class="card card-blue">
+                <span class="card-icon">🍽️</span>
+                <h3 class="card-title">Services</h3>
+                <ul class="info-list">
+                    <li>Restauration sur place</li>
+                    <li>Buvette permanente</li>
+                    <li>Espace VIP</li>
+                    <li>Parking gratuit</li>
+                </ul>
+            </div>
+
+            <div class="card card-orange">
+                <span class="card-icon">👥</span>
+                <h3 class="card-title">Participants</h3>
+                <ul class="info-list">
+                    <li>16 équipes masculines</li>
+                    <li>8 équipes féminines</li>
+                    <li>30 arbitres formés</li>
+                    <li>Plus de 40 bénévoles</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <strong>🎯 Important :</strong> Les inscriptions sont limitées. Réservez votre place dès maintenant pour garantir votre participation à cet événement exceptionnel !
+        </div>
+
+        <div class="page-footer">
+            <span class="page-number">Page 3</span> | Soholang CUP 2025 - Présentation Officielle
+        </div>
+    </div>
+
+    <!-- PAGE 4 : STREET WORKOUT & CONCOURS -->
+    <div class="page">
+        <div class="page-header">
+            <h2 class="page-title">Animation Spéciale</h2>
+            <p class="page-subtitle">Démonstration, Street Workout et <span style="color: #FFD700; font-weight: 900;">Concours de Pompes</span></p>
+        </div>
+
+        <div class="text-section">
+            <p>
+                En plus du tournoi de football, venez découvrir des <strong>démonstrations impressionnantes de street workout</strong> tout au long de l'événement ! Des athlètes locaux vous feront vivre des performances spectaculaires mêlant force, agilité et créativité.
+            </p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="card">
+                <span class="card-icon">🔥</span>
+                <h3 class="card-title">Démonstrations Live</h3>
+                <p class="card-content">Performances tout au long de la journée par des athlètes professionnels</p>
+            </div>
+
+            <div class="card">
+                <span class="card-icon">💪</span>
+                <h3 class="card-title">Initiations Gratuites</h3>
+                <p class="card-content">Essayez les barres avec l'accompagnement de nos coachs expérimentés</p>
+            </div>
+
+            <div class="card">
+                <span class="card-icon">🏅</span>
+                <h3 class="card-title">Zone Street Workout</h3>
+                <p class="card-content">Espace dédié avec équipements professionnels à disposition</p>
+            </div>
+
+            <div class="card" style="background: linear-gradient(135deg, #FFD700 0%, #FFC107 100%); border-color: #FFD700;">
+                <span class="card-icon">🏆</span>
+                <h3 class="card-title" style="color: #1a1a1a;">Concours de Pompes</h3>
+                <p class="card-content" style="color: #1a1a1a;"><strong>Testez votre endurance et gagnez des prix !</strong></p>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <strong>🎯 Ouvert à tous les niveaux</strong> - Que vous soyez débutant ou confirmé, venez participer et découvrir cette discipline impressionnante !
+        </div>
+
+        <div class="text-section">
+            <h3>Statistiques</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 15px;">
+                <div style="text-align: center; background: #f5f5f5; padding: 20px; border-radius: 10px;">
+                    <div style="font-size: 32pt; font-weight: 900; color: #0077CC;">10+</div>
+                    <div style="font-size: 11pt; color: #666;">Athlètes</div>
+                </div>
+                <div style="text-align: center; background: #f5f5f5; padding: 20px; border-radius: 10px;">
+                    <div style="font-size: 32pt; font-weight: 900; color: #0077CC;">3h</div>
+                    <div style="font-size: 11pt; color: #666;">De démos</div>
+                </div>
+                <div style="text-align: center; background: #f5f5f5; padding: 20px; border-radius: 10px;">
+                    <div style="font-size: 32pt; font-weight: 900; color: #0077CC;">100%</div>
+                    <div style="font-size: 11pt; color: #666;">Gratuit</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="page-number">Page 4</span> | Soholang CUP 2025 - Présentation Officielle
+        </div>
+    </div>
+
+    <!-- PAGE 5 : RÉCOMPENSES -->
+    <div class="page">
+        <div class="page-header">
+            <h2 class="page-title">Récompenses</h2>
+            <p class="page-subtitle">Prix et distinctions pour les équipes gagnantes</p>
+        </div>
+
+        <div class="text-section">
+            <h3>🏆 Tournoi Masculin</h3>
+        </div>
+
+        <table class="rewards-table">
+            <thead>
+                <tr>
+                    <th>Position</th>
+                    <th>Récompense</th>
+                    <th>Valeur</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="prize-badge first-place">🥇 1ère Place</span></td>
+                    <td><strong>1 Vache + 500€ + 1 Coupe</strong></td>
+                    <td>~2000€</td>
+                </tr>
+                <tr>
+                    <td><span class="prize-badge second-place">🥈 2ème Place</span></td>
+                    <td><strong>300€ + 1 Coupe</strong></td>
+                    <td>300€</td>
+                </tr>
+                <tr>
+                    <td><span class="prize-badge third-place">🥉 3ème Place</span></td>
+                    <td><strong>200€ + 1 Coupe</strong></td>
+                    <td>200€</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="text-section" style="margin-top: 40px;">
+            <h3>👩‍⚽ Tournoi Féminin</h3>
+        </div>
+
+        <table class="rewards-table">
+            <thead>
+                <tr>
+                    <th>Position</th>
+                    <th>Récompense</th>
+                    <th>Valeur</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="prize-badge first-place">🥇 1ère Place</span></td>
+                    <td><strong>400€ + 1 Coupe</strong></td>
+                    <td>400€</td>
+                </tr>
+                <tr>
+                    <td><span class="prize-badge second-place">🥈 2ème Place</span></td>
+                    <td><strong>250€ + 1 Coupe</strong></td>
+                    <td>250€</td>
+                </tr>
+                <tr>
+                    <td><span class="prize-badge third-place">🥉 3ème Place</span></td>
+                    <td><strong>150€ + 1 Coupe</strong></td>
+                    <td>150€</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box" style="margin-top: 30px;">
+            <strong>💰 Prix Total :</strong> Plus de 4000€ de récompenses distribuées aux équipes gagnantes !
+        </div>
+
+        <div class="page-footer">
+            <span class="page-number">Page 5</span> | Soholang CUP 2025 - Présentation Officielle
+        </div>
+    </div>
+
+    <!-- PAGE 6 : CONTACT -->
+    <div class="page">
+        <div class="page-header">
+            <h2 class="page-title">Contact & Informations</h2>
+            <p class="page-subtitle">Pour toute question ou inscription</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-item">
+                <span class="contact-item-icon">📧</span>
+                <div class="contact-item-label">Email</div>
+                <div class="contact-item-value">contact@guyanevents.fr</div>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-item-icon">📱</span>
+                <div class="contact-item-label">Téléphone</div>
+                <div class="contact-item-value">+594 694 XX XX XX</div>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-item-icon">📍</span>
+                <div class="contact-item-label">Lieu</div>
+                <div class="contact-item-value">Stade de la Charbonnière<br>Saint-Laurent du Maroni</div>
+            </div>
+
+            <div class="contact-item">
+                <span class="contact-item-icon">🌐</span>
+                <div class="contact-item-label">Réseaux Sociaux</div>
+                <div class="contact-item-value">@SoholangCup</div>
+            </div>
+        </div>
+
+        <div class="text-section" style="margin-top: 40px;">
+            <h3>Organisateur</h3>
+            <p><strong>Guyane Event's</strong> - Association dédiée à l'organisation d'événements sportifs et culturels en Guyane française.</p>
+        </div>
+
+        <div class="text-section">
+            <h3>Partenaires</h3>
+            <p>
+                Le tournoi Soholang CUP 2025 est rendu possible grâce au soutien de nos partenaires locaux et régionaux. 
+                Nous remercions le complexe sportif de la Charbonnière, les entreprises locales, et tous ceux qui contribuent 
+                à faire de cet événement un succès.
+            </p>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 30px;">
+            <strong>📅 Inscriptions ouvertes !</strong><br>
+            Ne manquez pas cette opportunité unique de participer au plus grand tournoi de football de fin d'année en Guyane. 
+            Contactez-nous dès maintenant pour réserver votre place !
+        </div>
+
+        <div style="margin-top: 50px; text-align: center; padding: 30px; background: linear-gradient(135deg, #003366 0%, #0077CC 100%); border-radius: 15px; color: white;">
+            <h3 style="font-size: 24pt; margin-bottom: 15px;">Rejoignez-nous !</h3>
+            <p style="font-size: 14pt; margin-bottom: 10px;">26, 27 & 28 Décembre 2025</p>
+            <p style="font-size: 12pt; opacity: 0.9;">Stade de la Charbonnière, Saint-Laurent du Maroni</p>
+        </div>
+
+        <div class="page-footer">
+            <span class="page-number">Page 6</span> | Soholang CUP 2025 - Présentation Officielle
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+📸 IMAGE DU HERO À PLACER ICI
+
+Enregistrez l'image du joueur de football (maillot jaune et bleu) 
+avec le nom suivant :
+
+    hero-football.jpg
+
+Et placez-la dans ce dossier (assets/).
+
+Le site utilisera automatiquement cette image en arrière-plan 
+de la première section.
+
+✅ Une fois l'image ajoutée, rafraîchissez votre navigateur.

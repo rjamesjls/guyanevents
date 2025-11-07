@@ -1,0 +1,23 @@
+# Documentation Markdown
+*.md
+!README.md
+
+# Fichiers de configuration IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers temporaires
+*.tmp
+*.log
+
+# Fichiers de développement
+node_modules
+.git
+.gitignore

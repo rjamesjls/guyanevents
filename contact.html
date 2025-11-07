@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Inscription - Soholang CUP 2025</title>
+    <meta name="description" content="Inscrivez votre équipe au tournoi Soholang CUP 2025 ou contactez-nous pour toute question. Guyane Event's.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact-styles.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="assets/logo.png" alt="Guyane Event's" class="logo" onerror="this.style.display='none'">
+                <span class="brand-text">SOHOLANG CUP</span>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="index.html#tournoi" class="nav-link">Le Tournoi</a></li>
+                <li><a href="index.html#infos" class="nav-link">Informations</a></li>
+                <li><a href="index.html#recompenses" class="nav-link">Récompenses</a></li>
+                <li><a href="index.html#partenaires" class="nav-link">Partenaires</a></li>
+                <li><a href="about.html" class="nav-link">À propos</a></li>
+                <li><a href="contact.html" class="nav-link btn-contact active">Contact & Inscription</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Contact & Inscription</h1>
+            <p>Rejoignez le tournoi Soholang CUP ou contactez-nous pour toute question</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-content">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h2>Informations de Contact</h2>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div class="info-details">
+                            <h3>Téléphone</h3>
+                            <p><a href="tel:+594694985035">+594 694 98 50 35</a></p>
+                            <p style="font-size: 14px; margin-top: 5px;">Disponible 7j/7 de 9h à 19h</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">📧</div>
+                        <div class="info-details">
+                            <h3>Email</h3>
+                            <p><a href="mailto:contact@guyanevents.com">contact@guyanevents.com</a></p>
+                            <p style="font-size: 14px; margin-top: 5px;">Réponse sous 24h</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div class="info-details">
+                            <h3>Adresse</h3>
+                            <p>Stade de la Charbonnière</p>
+                            <p>5 Rue Edgard Milien</p>
+                            <p>97320 Saint-Laurent-du-Maroni, Guyane</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-icon">🕐</div>
+                        <div class="info-details">
+                            <h3>Dates & Horaires du Tournoi</h3>
+                            <p><strong>26, 27 & 28 Décembre 2025</strong></p>
+                            <p>Tous les jours de 8h00 à 19h00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Container -->
+                <div class="form-container">
+                    <h2>Inscription & Contact</h2>
+                    <p class="form-subtitle">Choisissez votre type de demande</p>
+
+                    <!-- Form Tabs -->
+                    <div class="form-tabs">
+                        <button class="form-tab active" data-tab="registration">Inscription Équipe</button>
+                        <button class="form-tab" data-tab="general">Question Générale</button>
+                        <button class="form-tab" data-tab="partnership">Partenariat</button>
+                    </div>
+
+                    <!-- Registration Form -->
+                    <form id="registrationForm" class="form-content active">
+                        <div class="price-info" id="priceDisplay">
+                            <h3>Frais d'inscription</h3>
+                            <div class="price-amount">450€</div>
+                            <div class="price-details">Par équipe (16 joueurs maximum)</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="teamType">Type d'équipe <span class="required">*</span></label>
+                            <select id="teamType" name="teamType" required>
+                                <option value="">Sélectionner...</option>
+                                <option value="masculine">Équipe Masculine (450€)</option>
+                                <option value="feminine">Équipe Féminine (250€)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="teamName">Nom de l'équipe <span class="required">*</span></label>
+                            <input type="text" id="teamName" name="teamName" placeholder="Ex: FC Charbonnière" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="district">Quartier / Provenance <span class="required">*</span></label>
+                            <input type="text" id="district" name="district" placeholder="Ex: Charbonnière" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="managerName">Nom du responsable <span class="required">*</span></label>
+                                <input type="text" id="managerName" name="managerName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="managerFirstName">Prénom <span class="required">*</span></label>
+                                <input type="text" id="managerFirstName" name="managerFirstName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Téléphone <span class="required">*</span></label>
+                                <input type="tel" id="phone" name="phone" placeholder="+594..." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="playerCount">Nombre de joueurs (max 16) <span class="required">*</span></label>
+                            <input type="number" id="playerCount" name="playerCount" min="11" max="16" placeholder="11-16" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="comments">Commentaires / Questions</label>
+                            <textarea id="comments" name="comments" placeholder="Informations complémentaires..."></textarea>
+                        </div>
+
+                        <div class="form-notice">
+                            ⚠️ <strong>Important:</strong> Un membre de notre équipe vous contactera dans les 48h pour confirmer votre inscription et les modalités de paiement.
+                        </div>
+
+                        <button type="submit" class="submit-btn">Inscrire mon équipe</button>
+                        <div class="success-message" id="successMessage">✅ Inscription envoyée avec succès ! Nous vous contacterons rapidement.</div>
+                        <div class="error-message" id="errorMessage">❌ Une erreur est survenue. Veuillez réessayer ou nous contacter directement.</div>
+                    </form>
+
+                    <!-- General Contact Form -->
+                    <form id="generalForm" class="form-content">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="genName">Nom <span class="required">*</span></label>
+                                <input type="text" id="genName" name="genName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="genFirstName">Prénom <span class="required">*</span></label>
+                                <input type="text" id="genFirstName" name="genFirstName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="genPhone">Téléphone</label>
+                                <input type="tel" id="genPhone" name="genPhone" placeholder="+594...">
+                            </div>
+                            <div class="form-group">
+                                <label for="genEmail">Email <span class="required">*</span></label>
+                                <input type="email" id="genEmail" name="genEmail" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Sujet <span class="required">*</span></label>
+                            <input type="text" id="subject" name="subject" placeholder="Objet de votre message" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="genMessage">Message <span class="required">*</span></label>
+                            <textarea id="genMessage" name="genMessage" placeholder="Votre message..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Envoyer le message</button>
+                        <div class="success-message" id="genSuccessMessage">✅ Message envoyé avec succès ! Nous vous répondrons rapidement.</div>
+                        <div class="error-message" id="genErrorMessage">❌ Une erreur est survenue. Veuillez réessayer.</div>
+                    </form>
+
+                    <!-- Partnership Form -->
+                    <form id="partnershipForm" class="form-content">
+                        <div class="form-group">
+                            <label for="companyName">Nom de l'entreprise / Organisation <span class="required">*</span></label>
+                            <input type="text" id="companyName" name="companyName" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactName">Nom du contact <span class="required">*</span></label>
+                                <input type="text" id="contactName" name="contactName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactFirstName">Prénom <span class="required">*</span></label>
+                                <input type="text" id="contactFirstName" name="contactFirstName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="partPhone">Téléphone <span class="required">*</span></label>
+                                <input type="tel" id="partPhone" name="partPhone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="partEmail">Email <span class="required">*</span></label>
+                                <input type="email" id="partEmail" name="partEmail" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="partnershipType">Type de partenariat souhaité <span class="required">*</span></label>
+                            <select id="partnershipType" name="partnershipType" required>
+                                <option value="">Sélectionner...</option>
+                                <option value="sponsor">Sponsor officiel</option>
+                                <option value="supplier">Fournisseur</option>
+                                <option value="media">Partenaire média</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="partMessage">Décrivez votre projet de partenariat <span class="required">*</span></label>
+                            <textarea id="partMessage" name="partMessage" placeholder="Décrivez votre proposition..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Envoyer la proposition</button>
+                        <div class="success-message" id="partSuccessMessage">✅ Proposition envoyée ! Nous étudierons votre demande et vous contacterons rapidement.</div>
+                        <div class="error-message" id="partErrorMessage">❌ Une erreur est survenue. Veuillez réessayer.</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Localisation</span>
+                <h2 class="section-title">Comment nous trouver</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.023!2d-54.0343!3d5.5012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8d1271e6f4f4f4f4%3A0xabcdef1234567890!2sStade%20de%20la%20Charbonni%C3%A8re!5e1!3m2!1sfr!2sgf!4v1699370000000!5m2!1sfr!2sgf" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0; border-radius: 20px;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Stade de la Charbonnière - 5 Rue Edgard Milien, Saint-Laurent-du-Maroni">
+                </iframe>
+                <div class="map-info">
+                    <div class="map-info-content">
+                        <svg viewBox="0 0 24 24" fill="currentColor" style="width: 32px; height: 32px; color: #0077CC;">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        <div>
+                            <h3 style="margin: 0 0 5px 0; font-weight: 700; color: #003366;">Stade de la Charbonnière</h3>
+                            <p style="margin: 0; color: #666;">5 Rue Edgard Milien</p>
+                            <p style="margin: 5px 0 0 0; color: #666;">97320 Saint-Laurent-du-Maroni, Guyane</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Questions fréquentes</span>
+                <h2 class="section-title">FAQ</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Comment s'inscrire au tournoi ?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        Remplissez le formulaire d'inscription ci-dessus ou contactez-nous directement au +594 694 98 50 35. Un membre de notre équipe confirmera votre inscription et vous communiquera les modalités de paiement.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quels sont les frais d'inscription ?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        450€ pour une équipe masculine (16 joueurs) et 250€ pour une équipe féminine. Ces frais couvrent la participation au tournoi et permettent de financer les récompenses et l'organisation.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Combien de joueurs par équipe ?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        Minimum 11 joueurs, maximum 16 joueurs par équipe. Nous recommandons d'inscrire le maximum de joueurs pour gérer les remplacements.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Date limite d'inscription ?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        Les inscriptions sont ouvertes jusqu'au 15 décembre 2025 ou jusqu'à ce que les 16 places soient complètes. Inscrivez-vous rapidement pour garantir votre place !
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Y a-t-il de la restauration sur place ?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        Oui, des stands de restauration seront présents tout au long des 3 jours du tournoi. Vous pourrez vous restaurer et vous désaltérer sur place.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Le tournoi est-il ouvert aux spectateurs ?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        Absolument ! L'entrée est gratuite pour tous les spectateurs. Venez encourager votre équipe favorite et profiter d'une ambiance festive et familiale. Des animations pour enfants seront également organisées.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Une question ?</h2>
+                <p>N'hésitez pas à nous contacter par téléphone ou via le formulaire ci-dessus.</p>
+                <div class="cta-actions">
+                    <a href="tel:+594694985035" class="btn btn-primary btn-lg">📞 Appeler maintenant</a>
+                    <a href="index.html" class="btn btn-secondary btn-lg">Retour à l'accueil</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Soholang CUP 2025</h4>
+                    <p>Tournoi de football organisé par l'association Guyane Event's</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg></a>
+                        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153.509.5.902 1.105 1.153 1.772.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 01-1.153 1.772c-.5.509-1.105.902-1.772 1.153-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 01-1.772-1.153 4.904 4.904 0 01-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 011.153-1.772A4.897 4.897 0 015.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 100 10 5 5 0 000-10zm6.5-.25a1.25 1.25 0 10-2.5 0 1.25 1.25 0 002.5 0zM12 9a3 3 0 110 6 3 3 0 010-6z"/></svg></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="index.html#tournoi">Le Tournoi</a></li>
+                        <li><a href="index.html#infos">Informations</a></li>
+                        <li><a href="index.html#recompenses">Récompenses</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>📞 <a href="tel:+594694985035">+594 694 98 50 35</a></li>
+                        <li>📧 <a href="mailto:contact@guyanevents.com">contact@guyanevents.com</a></li>
+                        <li>📍 Saint-Laurent du Maroni, Guyane</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Horaires</h4>
+                    <p class="footer-schedule">
+                        <strong>26, 27 & 28 Décembre 2025</strong><br>
+                        8h00 - 19h00<br>
+                        Stade de la Charbonnière
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Guyane Event's. Tous droits réservés.</p>
+                <p>Conçu avec ❤️ pour le Soholang CUP</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Inscriptions Closes -->
+    <div id="closedModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeRegistrationModal()">&times;</button>
+            <div class="modal-header">
+                <h2>🏆 Inscriptions Closes - Tournoi Masculin</h2>
+            </div>
+            <div class="modal-body">
+                <p class="modal-message">Les inscriptions pour le tournoi masculin sont closes.</p>
+                <p class="modal-message"><strong>Les 16 places sont complètes !</strong></p>
+                
+                <h3 class="teams-title">✅ Équipes Qualifiées (16/16)</h3>
+                <div class="teams-grid">
+                    <div class="team-item">⚽ FC Balaté</div>
+                    <div class="team-item">⚽ Team PF</div>
+                    <div class="team-item">⚽ FC Trafic</div>
+                    <div class="team-item">⚽ FC St Jean</div>
+                    <div class="team-item">⚽ FC PAMAKA</div>
+                    <div class="team-item">⚽ FC CHARBO</div>
+                    <div class="team-item">⚽ FC LAWA</div>
+                    <div class="team-item">⚽ GuinGvmp</div>
+                    <div class="team-item">⚽ ReziGvmp</div>
+                    <div class="team-item">⚽ FC Sabaya</div>
+                    <div class="team-item">⚽ FC Cadence</div>
+                    <div class="team-item">⚽ FC Amapa</div>
+                    <div class="team-item">⚽ FC Vampire</div>
+                    <div class="team-item">⚽ FC Anakonde</div>
+                    <div class="team-item">⚽ AS Yuong Paddock</div>
+                    <div class="team-item">⚽ FC Bakalycé</div>
+                </div>
+                
+                <div class="modal-footer-message">
+                    <p class="next-edition">🎊 À l'année prochaine pour l'Édition N°2 ! 🎊</p>
+                    <p class="small-text">Les inscriptions féminines restent ouvertes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,568 @@
+/* ====================================
+   ANIMATIONS AVANCÉES - SOHOLANG CUP
+   Effets dynamiques, particules, mouvements
+   ==================================== */
+
+/* ====================================
+   PARTICULES DE SUEUR / GOUTTES
+   ==================================== */
+.sweat-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.sweat-drop {
+    position: absolute;
+    width: 3px;
+    height: 15px;
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(255, 255, 255, 0.7) 50%,
+        rgba(255, 255, 255, 0.3) 100%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: dropSlide var(--duration) ease-in infinite;
+    opacity: 0;
+    filter: blur(0.5px);
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.sweat-drop::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 10px;
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.4) 100%);
+    border-radius: 50%;
+}
+
+@keyframes dropSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) translateX(0);
+    }
+    5% {
+        opacity: 1;
+    }
+    10% {
+        transform: translateY(50px) translateX(2px);
+    }
+    20% {
+        transform: translateY(150px) translateX(-3px);
+    }
+    30% {
+        transform: translateY(300px) translateX(4px);
+    }
+    40% {
+        transform: translateY(450px) translateX(-2px);
+    }
+    50% {
+        transform: translateY(600px) translateX(3px);
+    }
+    60% {
+        transform: translateY(750px) translateX(-4px);
+    }
+    70% {
+        transform: translateY(900px) translateX(2px);
+    }
+    85% {
+        opacity: 0.8;
+        transform: translateY(calc(100vh - 30px)) translateX(-3px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100vh) translateX(0);
+    }
+}
+
+/* ====================================
+   EFFET VERRE / GLASSMORPHISM
+   ==================================== */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+}
+
+.glass-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-shine::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 70%
+    );
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+
+/* ====================================
+   MOUVEMENTS FLOTTANTS
+   ==================================== */
+.float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.float-delayed {
+    animation: float 3s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* ====================================
+   PULSATIONS ÉNERGÉTIQUES
+   ==================================== */
+.pulse-energy {
+    animation: pulseEnergy 2s ease-in-out infinite;
+}
+
+@keyframes pulseEnergy {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 30px 10px rgba(255, 215, 0, 0);
+    }
+}
+
+/* ====================================
+   ROTATION 3D DYNAMIQUE
+   ==================================== */
+.rotate-3d {
+    animation: rotate3D 20s linear infinite;
+    transform-style: preserve-3d;
+}
+
+@keyframes rotate3D {
+    0% {
+        transform: rotateY(0deg) rotateX(0deg);
+    }
+    100% {
+        transform: rotateY(360deg) rotateX(360deg);
+    }
+}
+
+/* ====================================
+   SECOUSSE / SHAKE (Pour compétition intense)
+   ==================================== */
+.shake-intense {
+    animation: shakeIntense 0.5s ease-in-out infinite;
+}
+
+@keyframes shakeIntense {
+    0%, 100% { transform: translateX(0); }
+    10% { transform: translateX(-3px) rotate(-1deg); }
+    20% { transform: translateX(3px) rotate(1deg); }
+    30% { transform: translateX(-3px) rotate(-1deg); }
+    40% { transform: translateX(3px) rotate(1deg); }
+    50% { transform: translateX(-3px) rotate(-1deg); }
+    60% { transform: translateX(3px) rotate(1deg); }
+    70% { transform: translateX(-3px) rotate(-1deg); }
+    80% { transform: translateX(3px) rotate(1deg); }
+    90% { transform: translateX(-3px) rotate(-1deg); }
+}
+
+/* ====================================
+   ZOOM DYNAMIQUE AU HOVER
+   ==================================== */
+.zoom-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.zoom-hover:hover {
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+/* ====================================
+   EFFETS DE LUMIÈRE / SPOTLIGHT
+   ==================================== */
+.spotlight {
+    position: relative;
+}
+
+.spotlight::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 215, 0, 0.3) 0%,
+        transparent 60%
+    );
+    animation: spotlightMove 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes spotlightMove {
+    0%, 100% {
+        transform: translate(0%, 0%);
+    }
+    25% {
+        transform: translate(20%, 20%);
+    }
+    50% {
+        transform: translate(-10%, 30%);
+    }
+    75% {
+        transform: translate(30%, -10%);
+    }
+}
+
+/* ====================================
+   EFFET TERRAIN / LIGNES MOUVANTES
+   ==================================== */
+.field-lines {
+    position: relative;
+    overflow: hidden;
+}
+
+.field-lines::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background-image: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 49px,
+            rgba(255, 255, 255, 0.05) 49px,
+            rgba(255, 255, 255, 0.05) 50px
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 49px,
+            rgba(255, 255, 255, 0.05) 49px,
+            rgba(255, 255, 255, 0.05) 50px
+        );
+    animation: fieldScroll 20s linear infinite;
+}
+
+@keyframes fieldScroll {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(50px, 50px);
+    }
+}
+
+/* ====================================
+   BRILLANCES / SPARKLES
+   ==================================== */
+.sparkle {
+    position: relative;
+}
+
+.sparkle::after {
+    content: '✨';
+    position: absolute;
+    font-size: 20px;
+    animation: sparkleFloat 2s ease-in-out infinite;
+    opacity: 0;
+}
+
+@keyframes sparkleFloat {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(10px, -20px) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(20px, -40px) scale(0);
+    }
+}
+
+/* ====================================
+   EFFET BALLON QUI ROULE
+   ==================================== */
+@keyframes ballRoll {
+    0% {
+        transform: translateX(-100%) rotate(0deg);
+    }
+    100% {
+        transform: translateX(calc(100vw + 100%)) rotate(720deg);
+    }
+}
+
+.ball-roll {
+    animation: ballRoll 15s linear infinite;
+}
+
+/* ====================================
+   VAGUES D'ÉNERGIE
+   ==================================== */
+.energy-wave {
+    position: relative;
+}
+
+.energy-wave::before,
+.energy-wave::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(255, 215, 0, 0.5);
+    border-radius: 50%;
+    animation: energyPulse 2s ease-out infinite;
+}
+
+.energy-wave::after {
+    animation-delay: 1s;
+}
+
+@keyframes energyPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
+}
+
+/* ====================================
+   GLITCH EFFECT (Pour intensité)
+   ==================================== */
+.glitch {
+    position: relative;
+    animation: glitchAnimation 5s infinite;
+}
+
+@keyframes glitchAnimation {
+    0%, 90%, 100% {
+        transform: translate(0);
+    }
+    91% {
+        transform: translate(-2px, 2px);
+    }
+    92% {
+        transform: translate(2px, -2px);
+    }
+    93% {
+        transform: translate(-2px, 2px);
+    }
+}
+
+/* ====================================
+   EFFET MOUILLÉ / GOUTTES D'EAU
+   ==================================== */
+.water-drop {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+    border-radius: 50%;
+    animation: waterDrop 1.5s ease-out infinite;
+}
+
+@keyframes waterDrop {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(30px) scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(60px) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* ====================================
+   EFFET PARALLAX AU SCROLL
+   ==================================== */
+.parallax-slow {
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.parallax-fast {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ====================================
+   EFFET DE FEU / FLAMMES (Compétition chaude)
+   ==================================== */
+.fire-effect {
+    animation: fireFlicker 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes fireFlicker {
+    0% {
+        text-shadow: 
+            0 0 10px #ff6b35,
+            0 0 20px #ff6b35,
+            0 0 30px #ff6b35;
+    }
+    100% {
+        text-shadow: 
+            0 0 15px #ffd700,
+            0 0 25px #ffd700,
+            0 0 35px #ff6b35;
+    }
+}
+
+/* ====================================
+   REBOND DYNAMIQUE
+   ==================================== */
+.bounce-dynamic {
+    animation: bounceDynamic 2s ease-in-out infinite;
+}
+
+@keyframes bounceDynamic {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+/* ====================================
+   EFFET DE VITESSE / MOTION BLUR
+   ==================================== */
+.speed-lines {
+    position: relative;
+}
+
+.speed-lines::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 215, 0, 0.8),
+        transparent
+    );
+    animation: speedLine 1s ease-in-out infinite;
+}
+
+@keyframes speedLine {
+    0% {
+        left: -100%;
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+/* ====================================
+   CONFETTI CELEBRATION
+   ==================================== */
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.confetti {
+    animation: confettiFall 3s linear infinite;
+}
+
+/* ====================================
+   EFFET STADE / FOULE
+   ==================================== */
+.crowd-wave {
+    animation: crowdWave 3s ease-in-out infinite;
+}
+
+@keyframes crowdWave {
+    0%, 100% {
+        transform: scaleY(1);
+    }
+    25% {
+        transform: scaleY(1.1);
+    }
+    50% {
+        transform: scaleY(0.9);
+    }
+    75% {
+        transform: scaleY(1.05);
+    }
+}
+
+/* ====================================
+   BALLON REBONDISSANT
+   ==================================== */
+.bouncing-ball {
+    position: fixed;
+    font-size: 48px;
+    z-index: 100;
+    pointer-events: none;
+    user-select: none;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    transition: transform 0.1s ease;
+    will-change: transform;
+}
