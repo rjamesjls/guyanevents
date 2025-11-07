@@ -584,8 +584,27 @@ if (demoForm) {
         const message = `🔥 INSCRIPTION DÉMOS STREET WORKOUT\n\nNom: ${data.firstName} ${data.lastName}\nTél: ${data.phone}\nEmail: ${data.email || 'Non renseigné'}\nActivité: ${activityLabels[data.activity]}\nNiveau: ${levelLabels[data.level]}\n${data.comments ? '\nCommentaires: ' + data.comments : ''}`;
         const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
         
-        // Envoyer automatiquement vers WhatsApp (décommentez si souhaité)
-        // window.open(whatsappUrl, '_blank');
+        // 📱 Envoyer vers WhatsApp
+        window.open(whatsappUrl, '_blank');
+        
+        // 📧 Envoyer par Email avec EmailJS
+        if (typeof emailjs !== 'undefined') {
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+                to_email: 'Verda-Joseph@hotmail.fr',
+                from_name: data.firstName + ' ' + data.lastName,
+                from_email: data.email || 'Non renseigné',
+                phone: data.phone,
+                activity: activityLabels[data.activity],
+                level: levelLabels[data.level],
+                comments: data.comments || 'Aucun commentaire',
+                message: message
+            })
+            .then(function(response) {
+                console.log('✅ Email envoyé avec succès!', response.status, response.text);
+            }, function(error) {
+                console.error('❌ Erreur envoi email:', error);
+            });
+        }
         
         // Fermer automatiquement après 5 secondes
         setTimeout(() => {
