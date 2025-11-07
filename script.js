@@ -589,7 +589,7 @@ if (demoForm) {
         
         // 📧 Envoyer par Email avec EmailJS
         if (typeof emailjs !== 'undefined') {
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+            emailjs.send('service_1qxo366', 'template_yrcw8lu', {
                 to_email: 'Verda-Joseph@hotmail.fr',
                 from_name: data.firstName + ' ' + data.lastName,
                 from_email: data.email || 'Non renseigné',
@@ -600,7 +600,7 @@ if (demoForm) {
                 message: message
             })
             .then(function(response) {
-                console.log('✅ Email envoyé avec succès!', response.status, response.text);
+                console.log('✅ Email envoyé avec succès à Verda-Joseph@hotmail.fr!', response.status, response.text);
             }, function(error) {
                 console.error('❌ Erreur envoi email:', error);
             });
