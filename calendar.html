@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier - Soholang CUP 2025</title>
+    <meta name="description" content="Programme complet des matchs du tournoi Soholang CUP 2025.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .calendar-hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, var(--deep-blue), var(--primary-blue));
+            color: var(--white);
+            text-align: center;
+        }
+
+        .calendar-content {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="assets/logo.png" alt="Guyane Event's" class="logo" onerror="this.style.display='none'">
+                <span class="brand-text">GUYAN'EVENT'S</span>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li class="dropdown">
+                    <a href="index.html#tournoi" class="nav-link active">Le Tournoi <i
+                            class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-content">
+                        <li><a href="groups.html" class="nav-link">Poules</a></li>
+                        <li><a href="calendar.html" class="nav-link active">Calendrier</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#infos" class="nav-link">Informations</a></li>
+                <li><a href="index.html#recompenses" class="nav-link">Récompenses</a></li>
+                <li><a href="index.html#partenaires" class="nav-link">Partenaires</a></li>
+                <li><a href="about.html" class="nav-link">À propos</a></li>
+                <li><a href="contact.html" class="nav-link btn-contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Calendar Hero -->
+    <section class="calendar-hero">
+        <div class="container">
+            <div class="hero-badge">PROGRAMME OFFICIEL</div>
+            <h1 class="hero-title">Calendrier des Matchs</h1>
+            <p class="hero-subtitle">Retrouvez tous les horaires et résultats du tournoi</p>
+        </div>
+    </section>
+
+    <!-- Calendar Content -->
+    <section class="calendar-content">
+        <div class="container">
+            <div class="calendar-list">
+
+                <!-- Day 1 -->
+                <div class="day-header">
+                    <h2 class="day-title">Vendredi 26 Décembre 2025</h2>
+                    <span class="day-subtitle">Phase de Poules - Jour 1</span>
+                </div>
+
+                <div class="matches-group">
+
+                    <!-- Match 1 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 08:00 - 08:40</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">FC CHARBO</span>
+                                <img src="assets/teams/fc_charbo.png" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/fc_sabaya.png" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">FC SABAYA</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule A</div>
+                    </div>
+
+                    <!-- Match 2 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 08:45 - 09:25</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">FC COCONOTO</span>
+                                <img src="assets/teams/fc_coconoto.png" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/fc_trafic.png" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">FC TRAFIC</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule B</div>
+                    </div>
+
+                    <!-- Match 3 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 09:30 - 10:10</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">FC BAKA LYCEE</span>
+                                <img src="assets/teams/fc_baka_lycee.jpg" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/ps_love.png" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">PS LOVE</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule C</div>
+                    </div>
+
+                    <!-- Match 4 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 10:15 - 10:55</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">FC PAMAKA</span>
+                                <img src="assets/teams/fc_pamaka.png" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/fc_cadence.png" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">FC CADENCE</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule D</div>
+                    </div>
+
+                    <!-- Match 5 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 11:00 - 11:40</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">FC ST JEAN</span>
+                                <img src="assets/teams/fc_st_jean.png" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/fc_lawa.png" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">FC LAWA</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule A</div>
+                    </div>
+
+                    <!-- Match 6 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 11:45 - 12:25</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">FC ANACONDE</span>
+                                <img src="assets/teams/fc_anaconde.png" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/resi_gvng.jpg" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">RESI GVNG</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule B</div>
+                    </div>
+
+                    <!-- Match 7 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 12:30 - 13:10</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">AS YOUNG PADDOCK</span>
+                                <img src="assets/teams/as_young_paddock.png" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/fc_sans_forcer.jpg" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">FC SANS FORCER</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule C</div>
+                    </div>
+
+                    <!-- Match 8 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 13:15 - 13:55</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">FC AMAPA</span>
+                                <img src="assets/teams/fc_amapa.jpg" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/paris_flore.png" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">PARIS FLORE</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule D</div>
+                    </div>
+
+                    <!-- Match 9 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 14:00 - 14:40</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">FC SABAYA</span>
+                                <img src="assets/teams/fc_sabaya.png" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/fc_st_jean.png" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">FC ST JEAN</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule A</div>
+                    </div>
+
+                    <!-- Match 10 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 14:45 - 15:25</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">FC TRAFIC</span>
+                                <img src="assets/teams/fc_trafic.png" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/fc_anaconde.png" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">FC ANACONDE</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule B</div>
+                    </div>
+
+                    <!-- Match 11 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 15:30 - 16:10</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">PS LOVE</span>
+                                <img src="assets/teams/ps_love.png" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/as_young_paddock.png" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">AS YOUNG PADDOCK</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule C</div>
+                    </div>
+
+                    <!-- Match 12 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 16:15 - 16:55</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">PARIS FLORE</span>
+                                <img src="assets/teams/paris_flore.png" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/fc_cadence.png" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">FC CADENCE</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule D</div>
+                    </div>
+
+                </div>
+
+                <!-- Day 2 -->
+                <div class="day-header">
+                    <h2 class="day-title">Samedi 27 Décembre 2025</h2>
+                    <span class="day-subtitle">Phase de Poules - Jour 2</span>
+                </div>
+
+                <div class="matches-group">
+
+                    <!-- Match 1 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 08:00 - 08:40</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">FC CHARBO</span>
+                                <img src="assets/teams/fc_charbo.png" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/fc_lawa.png" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">FC LAWA</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule A</div>
+                    </div>
+
+                    <!-- Match 2 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 08:45 - 09:25</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">FC BAKA LYCEE</span>
+                                <img src="assets/teams/fc_baka_lycee.jpg" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/fc_sans_forcer.jpg" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">FC SANS FORCER</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule C</div>
+                    </div>
+
+                    <!-- Match 3 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 09:30 - 10:10</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">FC COCONOTO</span>
+                                <img src="assets/teams/fc_coconoto.png" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/resi_gvng.jpg" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">RESI GVNG</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule B</div>
+                    </div>
+
+                    <!-- Match 4 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 10:15 - 10:55</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">FC CADENCE</span>
+                                <img src="assets/teams/fc_cadence.png" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/fc_amapa.jpg" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">FC AMAPA</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule D</div>
+                    </div>
+
+                    <!-- Match 5 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 11:00 - 11:40</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">FC LAWA</span>
+                                <img src="assets/teams/fc_lawa.png" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/fc_sabaya.png" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">FC SABAYA</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule A</div>
+                    </div>
+
+                    <!-- Match 6 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 11:45 - 12:25</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">RESI GVNG</span>
+                                <img src="assets/teams/resi_gvng.jpg" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/fc_trafic.png" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">FC TRAFIC</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule B</div>
+                    </div>
+
+                    <!-- Match 7 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 12:30 - 13:10</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">FC SANS FORCER</span>
+                                <img src="assets/teams/fc_sans_forcer.jpg" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/ps_love.png" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">PS LOVE</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule C</div>
+                    </div>
+
+                    <!-- Match 8 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 13:15 - 13:55</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">FC PAMAKA</span>
+                                <img src="assets/teams/fc_pamaka.png" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/paris_flore.png" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">PARIS FLORE</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule D</div>
+                    </div>
+
+                    <!-- Match 9 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 14:00 - 14:40</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">FC ST JEAN</span>
+                                <img src="assets/teams/fc_st_jean.png" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/fc_charbo.png" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">FC CHARBO</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule A</div>
+                    </div>
+
+                    <!-- Match 10 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 14:45 - 15:25</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">FC ANACONDE</span>
+                                <img src="assets/teams/fc_anaconde.png" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/fc_coconoto.png" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">FC COCONOTO</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule B</div>
+                    </div>
+
+                    <!-- Match 11 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 15:30 - 16:10</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">AS YOUNG PADDOCK</span>
+                                <img src="assets/teams/as_young_paddock.png" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/fc_baka_lycee.jpg" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">FC BAKA LYCEE</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule C</div>
+                    </div>
+
+                    <!-- Match 12 -->
+                    <div class="match-card">
+                        <div class="match-meta">
+                            <span class="match-time"><i class="fas fa-clock"></i> 16:15 - 16:55</span>
+                            <span class="match-location">Stade Lamoricocchi</span>
+                        </div>
+                        <div class="match-teams">
+                            <div class="match-team home">
+                                <span class="team-name-text">FC AMAPA</span>
+                                <img src="assets/teams/fc_amapa.jpg" class="team-logo-small" alt="Logo">
+                            </div>
+                            <span class="match-versus">VS</span>
+                            <div class="match-team away">
+                                <img src="assets/teams/fc_pamaka.png" class="team-logo-small" alt="Logo">
+                                <span class="team-name-text">FC PAMAKA</span>
+                            </div>
+                        </div>
+                        <div class="match-info-tag">Poule D</div>
+                    </div>
+
+                </div>
+
+                <!-- Day 3 -->
+                <div class="day-header">
+                    <h2 class="day-title">Dimanche 28 Décembre 2025</h2>
+                    <span class="day-subtitle">Phases Finales</span>
+                </div>
+
+                <div class="matches-group">
+
+                    <div class="mobile-scroll-hint">
+                        <i class="fas fa-arrows-alt-h"></i> Faites défiler pour voir la suite <i
+                            class="fas fa-hand-pointer"></i>
+                    </div>
+
+                    <div class="tournament-wrapper">
+                        <div class="tournament-bracket">
+
+                            <!-- 1/4 Final -->
+                            <div class="round round-quarter">
+                                <div class="bracket-match">
+                                    <div class="bracket-match-info">1/4 Finale 1 • 08:00</div>
+                                    <div class="bracket-team"><span>1ère Poule A</span> <span
+                                            class="bracket-score">-</span></div>
+                                    <div class="bracket-team"><span>2ème Poule C</span> <span
+                                            class="bracket-score">-</span></div>
+                                    <div class="match-connector-lines"
+                                        style="height: 100%; top: 50%; border-bottom: 0;"></div>
+                                </div>
+                                <div class="bracket-match">
+                                    <div class="bracket-match-info">1/4 Finale 2 • 09:05</div>
+                                    <div class="bracket-team"><span>1ère Poule B</span> <span
+                                            class="bracket-score">-</span></div>
+                                    <div class="bracket-team"><span>2ème Poule D</span> <span
+                                            class="bracket-score">-</span></div>
+                                    <div class="match-connector-lines" style="height: 100%; top: -50%; border-top: 0;">
+                                    </div>
+                                </div>
+                                <div class="bracket-match">
+                                    <div class="bracket-match-info">1/4 Finale 3 • 10:10</div>
+                                    <div class="bracket-team"><span>1ère Poule C</span> <span
+                                            class="bracket-score">-</span></div>
+                                    <div class="bracket-team"><span>2ème Poule A</span> <span
+                                            class="bracket-score">-</span></div>
+                                    <div class="match-connector-lines"
+                                        style="height: 100%; top: 50%; border-bottom: 0;"></div>
+                                </div>
+                                <div class="bracket-match">
+                                    <div class="bracket-match-info">1/4 Finale 4 • 11:15</div>
+                                    <div class="bracket-team"><span>1ère Poule D</span> <span
+                                            class="bracket-score">-</span></div>
+                                    <div class="bracket-team"><span>2ème Poule B</span> <span
+                                            class="bracket-score">-</span></div>
+                                    <div class="match-connector-lines" style="height: 100%; top: -50%; border-top: 0;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 1/2 Final -->
+                            <div class="round round-semi">
+                                <div class="bracket-match">
+                                    <div class="bracket-match-info">Demi 1 • 12:35</div>
+                                    <div class="bracket-team"><span>Gagnant 1/4 1</span> <span
+                                            class="bracket-score">-</span></div>
+                                    <div class="bracket-team"><span>Gagnant 1/4 2</span> <span
+                                            class="bracket-score">-</span></div>
+                                    <!-- Connects to Final -->
+                                    <div class="match-connector-lines"
+                                        style="height: 250%; top: 50%; border-bottom: 0; width: 80px; right: -80px;">
+                                    </div>
+                                </div>
+                                <div class="bracket-match">
+                                    <div class="bracket-match-info">Demi 2 • 13:40</div>
+                                    <div class="bracket-team"><span>Gagnant 1/4 3</span> <span
+                                            class="bracket-score">-</span></div>
+                                    <div class="bracket-team"><span>Gagnant 1/4 4</span> <span
+                                            class="bracket-score">-</span></div>
+                                    <!-- Connects to Final -->
+                                    <div class="match-connector-lines"
+                                        style="height: 250%; top: -200%; border-top: 0; width: 80px; right: -80px;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Final -->
+                            <div class="round round-final">
+                                <div class="final-trophy" style="opacity: 0.5; font-size: 16px;"><i
+                                        class="fas fa-flag-checkered"></i></div>
+                                <div class="bracket-match">
+                                    <div class="bracket-match-info">Grande Finale • 15:55</div>
+                                    <div class="bracket-team"><span>Gagnant Demi 1</span> <span
+                                            class="bracket-score">-</span></div>
+                                    <div class="bracket-team"><span>Gagnant Demi 2</span> <span
+                                            class="bracket-score">-</span></div>
+                                </div>
+                            </div>
+
+                            <!-- Winner Node -->
+                            <div class="round round-winner">
+                                <div class="winner-card">
+                                    <div class="winner-cup">
+                                        <img src="assets/trophy.png" alt="Trophée" class="trophy-img">
+                                    </div>
+                                    <div class="winner-label">Vainqueur</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Other Matches (Petite Finale / Feminine) -->
+                    <div class="container" style="max-width: 800px;">
+                        <h3 style="text-align: center; margin-top: 40px; color: var(--deep-blue);">Autres Matchs de
+                            Classement</h3>
+
+                        <!-- Petite Finale -->
+                        <div class="match-card">
+                            <div class="match-meta">
+                                <span class="match-time"><i class="fas fa-clock"></i> 14:45 - 15:15</span>
+                                <span class="match-location">Petite Finale</span>
+                            </div>
+                            <div class="match-teams">
+                                <div class="match-team home"><span class="team-name-text">Perdant Demi 1</span></div>
+                                <span class="match-versus">VS</span>
+                                <div class="match-team away"><span class="team-name-text">Perdant Demi 2</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Finale Féminine -->
+                        <div class="match-card">
+                            <div class="match-meta">
+                                <span class="match-time"><i class="fas fa-clock"></i> 15:20 - 15:50</span>
+                                <span class="match-location">Finale Féminine</span>
+                            </div>
+                            <div class="match-teams">
+                                <div class="match-team home"><span class="team-name-text">Equipe F A</span></div>
+                                <span class="match-versus">VS</span>
+                                <div class="match-team away"><span class="team-name-text">Equipe F B</span></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Soholang CUP 2025</h4>
+                    <p>Tournoi de football organisé par l'association Guyane Event's</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="index.html#tournoi">Le Tournoi</a></li>
+                        <li><a href="groups.html">Les Poules</a></li>
+                        <li><a href="calendar.html">Calendrier</a></li>
+                        <li><a href="index.html#infos">Informations</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Guyane Event's. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="animations.js"></script>
+</body>
+
+</html>

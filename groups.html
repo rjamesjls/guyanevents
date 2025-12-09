@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Poules - Soholang CUP 2025</title>
+    <meta name="description" content="Classements et résultats des phases de poules du tournoi Soholang CUP 2025.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .groups-hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, var(--deep-blue), var(--primary-blue));
+            color: var(--white);
+            text-align: center;
+        }
+
+        .groups-content {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="assets/logo.png" alt="Guyane Event's" class="logo" onerror="this.style.display='none'">
+                <span class="brand-text">GUYAN'EVENT'S</span>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li class="dropdown">
+                    <a href="index.html#tournoi" class="nav-link active">Le Tournoi <i
+                            class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-content">
+                        <li><a href="groups.html" class="nav-link active">Poules</a></li>
+                        <li><a href="calendar.html" class="nav-link">Calendrier</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#infos" class="nav-link">Informations</a></li>
+                <li><a href="index.html#recompenses" class="nav-link">Récompenses</a></li>
+                <li><a href="index.html#partenaires" class="nav-link">Partenaires</a></li>
+                <li><a href="about.html" class="nav-link">À propos</a></li>
+                <li><a href="contact.html" class="nav-link btn-contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Groups Hero -->
+    <section class="groups-hero">
+        <div class="container">
+            <div class="hero-badge">CLASSEMENTS EN DIRECT</div>
+            <h1 class="hero-title">Phase de Poules & Classement</h1>
+            <p class="hero-subtitle">Suivez les résultats des 16 équipes en compétition</p>
+        </div>
+    </section>
+
+    <!-- Standings Content -->
+    <section class="groups-content">
+        <div class="container">
+
+            <div class="standings-grid">
+
+                <!-- Poule A -->
+                <div class="standings-card">
+                    <div class="standings-header">
+                        <div class="poule-title">Poule A</div>
+                        <div class="standings-legend">
+                            <span class="legend-item">J</span>
+                            <span class="legend-item">PTS</span>
+                            <span class="legend-item">+/-</span>
+                        </div>
+                    </div>
+                    <div class="standings-rows">
+                        <!-- Row 1 -->
+                        <div class="standings-row">
+                            <div class="team-rank">1</div>
+                            <div class="team-info">
+                                <img src="assets/teams/fc_charbo.png"
+                                    onerror="this.src='https://via.placeholder.com/36?text=FC'" class="team-logo"
+                                    alt="Logo">
+                                <span class="team-name">FC CHARBO</span>
+                            </div>
+                            <div class="exam-stats">
+                                <span class="stat-item">0</span>
+                                <span class="stat-item stat-pts">0</span>
+                                <span class="stat-item">0</span>
+                            </div>
+                        </div>
+                        <!-- Row 2 -->
+                        <div class="standings-row">
+                            <div class="team-rank">2</div>
+                            <div class="team-info">
+                                <img src="assets/teams/fc_st_jean.png"
+                                    onerror="this.src='https://via.placeholder.com/36?text=FC'" class="team-logo"
+                                    alt="Logo">
+                                <span class="team-name">FC ST JEAN</span>
+                            </div>
+                            <div class="exam-stats">
+                                <span class="stat-item">0</span>
+                                <span class="stat-item stat-pts">0</span>
+                                <span class="stat-item">0</span>
+                            </div>
+                        </div>
+                        <!-- Row 3 -->
+                        <div class="standings-row">
+                            <div class="team-rank">3</div>
+                            <div class="team-info">
+                                <img src="assets/teams/fc_lawa.png"
+                                    onerror="this.src='https://via.placeholder.com/36?text=FC'" class="team-logo"
+                                    alt="Logo">
+                                <span class="team-name">FC LAWA</span>
+                            </div>
+                            <div class="exam-stats">
+                                <span class="stat-item">0</span>
+                                <span class="stat-item stat-pts">0</span>
+                                <span class="stat-item">0</span>
+                            </div>
+                        </div>
+                        <!-- Row 4 -->
+                        <div class="standings-row">
+                            <div class="team-rank">4</div>
+                            <div class="team-info">
+                                <img src="assets/teams/fc_sabaya.png"
+                                    onerror="this.src='https://via.placeholder.com/36?text=FC'" class="team-logo"
+                                    alt="Logo">
+                                <span class="team-name">FC SABAYA</span>
+                            </div>
+                            <div class="exam-stats">
+                                <span class="stat-item">0</span>
+                                <span class="stat-item stat-pts">0</span>
+                                <span class="stat-item">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Poule B -->
+                <div class="standings-card">
+                    <div class="standings-header">
+                        <div class="poule-title">Poule B</div>
+                        <div class="standings-legend">
+                            <span class="legend-item">J</span>
+                            <span class="legend-item">PTS</span>
+                            <span class="legend-item">+/-</span>
+                        </div>
+                    </div>
+                    <div class="standings-rows">
+                        <div class="standings-row">
+                            <div class="team-rank">1</div>
+                            <div class="team-info">
+                                <img src="assets/teams/fc_coconoto.png"
+                                    onerror="this.src='https://via.placeholder.com/36?text=FC'" class="team-logo"
+                                    alt="Logo">
+                                <span class="team-name">FC COCONOTO</span>
+                            </div>
+                            <div class="exam-stats">
+                                <span class="stat-item">0</span>
+                                <span class="stat-item stat-pts">0</span>
+                                <span class="stat-item">0</span>
+                            </div>
+                        </div>
+                        <div class="standings-row">
+                            <div class="team-rank">2</div>
+                            <div class="team-info">
+                                <img src="assets/teams/fc_anaconde.png"
+                                    onerror="this.src='https://via.placeholder.com/36?text=FC'" class="team-logo"
+                                    alt="Logo">
+                                <span class="team-name">FC ANACONDE</span>
+                            </div>
+                            <div class="exam-stats">
+                                <span class="stat-item">0</span>
+                                <span class="stat-item stat-pts">0</span>
+                                <span class="stat-item">0</span>
+                            </div>
+                        </div>
+                        <div class="standings-row">
+                            <div class="team-rank">3</div>
+                            <div class="team-info">
+                                <img src="assets/teams/resi_gvng.jpg"
+                                    onerror="this.src='https://via.placeholder.com/36?text=RG'" class="team-logo"
+                                    alt="Logo">
+                                <span class="team-name">RESI GVNG</span>
+                            </div>
+                            <div class="exam-stats">
+                                <span class="stat-item">0</span>
+                                <span class="stat-item stat-pts">0</span>
+                                <span class="stat-item">0</span>
+                            </div>
+                        </div>
+                        <div class="standings-row">
+                            <div class="team-rank">4</div>
+                            <div class="team-info">
+                                <img src="assets/teams/fc_trafic.png"
+                                    onerror="this.src='https://via.placeholder.com/36?text=FC'" class="team-logo"
+                                    alt="Logo">
+                                <span class="team-name">FC TRAFIC</span>
+                            </div>
+                            <div class="exam-stats">
+                                <span class="stat-item">0</span>
+                                <span class="stat-item stat-pts">0</span>
+                                <span class="stat-item">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Poule C -->
+                <div class="standings-card">
+                    <div class="standings-header">
+                        <div class="poule-title">Poule C</div>
+                        <div class="standings-legend">
+                            <span class="legend-item">J</span>
+                            <span class="legend-item">PTS</span>
+                            <span class="legend-item">+/-</span>
+                        </div>
+                    </div>
+                    <div class="standings-rows">
+                        <div class="standings-row">
+                            <div class="team-rank">1</div>
+                            <div class="team-info">
+                                <img src="assets/teams/fc_baka_lycee.jpg"
+                                    onerror="this.src='https://via.placeholder.com/36?text=FC'" class="team-logo"
+                                    alt="Logo">
+                                <span class="team-name">FC BAKA LYCEE</span>
+                            </div>
+                            <div class="exam-stats">
+                                <span class="stat-item">0</span>
+                                <span class="stat-item stat-pts">0</span>
+                                <span class="stat-item">0</span>
+                            </div>
+                        </div>
+                        <div class="standings-row">
+                            <div class="team-rank">2</div>
+                            <div class="team-info">
+                                <img src="assets/teams/as_young_paddock.png"
+                                    onerror="this.src='https://via.placeholder.com/36?text=YP'" class="team-logo"
+                                    alt="Logo">
+                                <span class="team-name">AS YOUNG PADDOCK</span>
+                            </div>
+                            <div class="exam-stats">
+                                <span class="stat-item">0</span>
+                                <span class="stat-item stat-pts">0</span>
+                                <span class="stat-item">0</span>
+                            </div>
+                        </div>
+                        <div class="standings-row">
+                            <div class="team-rank">3</div>
+                            <div class="team-info">
+                                <img src="assets/teams/fc_sans_forcer.jpg"
+                                    onerror="this.src='https://via.placeholder.com/36?text=FC'" class="team-logo"
+                                    alt="Logo">
+                                <span class="team-name">FC SANS FORCER</span>
+                            </div>
+                            <div class="exam-stats">
+                                <span class="stat-item">0</span>
+                                <span class="stat-item stat-pts">0</span>
+                                <span class="stat-item">0</span>
+                            </div>
+                        </div>
+                        <div class="standings-row">
+                            <div class="team-rank">4</div>
+                            <div class="team-info">
+                                <img src="assets/teams/ps_love.png"
+                                    onerror="this.src='https://via.placeholder.com/36?text=PS'" class="team-logo"
+                                    alt="Logo">
+                                <span class="team-name">PS LOVE</span>
+                            </div>
+                            <div class="exam-stats">
+                                <span class="stat-item">0</span>
+                                <span class="stat-item stat-pts">0</span>
+                                <span class="stat-item">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Poule D -->
+                <div class="standings-card">
+                    <div class="standings-header">
+                        <div class="poule-title">Poule D</div>
+                        <div class="standings-legend">
+                            <span class="legend-item">J</span>
+                            <span class="legend-item">PTS</span>
+                            <span class="legend-item">+/-</span>
+                        </div>
+                    </div>
+                    <div class="standings-rows">
+                        <div class="standings-row">
+                            <div class="team-rank">1</div>
+                            <div class="team-info">
+                                <img src="assets/teams/fc_pamaka.png"
+                                    onerror="this.src='https://via.placeholder.com/36?text=FC'" class="team-logo"
+                                    alt="Logo">
+                                <span class="team-name">FC PAMAKA</span>
+                            </div>
+                            <div class="exam-stats">
+                                <span class="stat-item">0</span>
+                                <span class="stat-item stat-pts">0</span>
+                                <span class="stat-item">0</span>
+                            </div>
+                        </div>
+                        <div class="standings-row">
+                            <div class="team-rank">2</div>
+                            <div class="team-info">
+                                <img src="assets/teams/fc_amapa.jpg"
+                                    onerror="this.src='https://via.placeholder.com/36?text=FC'" class="team-logo"
+                                    alt="Logo">
+                                <span class="team-name">FC AMAPA</span>
+                            </div>
+                            <div class="exam-stats">
+                                <span class="stat-item">0</span>
+                                <span class="stat-item stat-pts">0</span>
+                                <span class="stat-item">0</span>
+                            </div>
+                        </div>
+                        <div class="standings-row">
+                            <div class="team-rank">3</div>
+                            <div class="team-info">
+                                <img src="assets/teams/paris_flore.png"
+                                    onerror="this.src='https://via.placeholder.com/36?text=PF'" class="team-logo"
+                                    alt="Logo">
+                                <span class="team-name">PARIS FLORE</span>
+                            </div>
+                            <div class="exam-stats">
+                                <span class="stat-item">0</span>
+                                <span class="stat-item stat-pts">0</span>
+                                <span class="stat-item">0</span>
+                            </div>
+                        </div>
+                        <div class="standings-row">
+                            <div class="team-rank">4</div>
+                            <div class="team-info">
+                                <img src="assets/teams/fc_cadence.png"
+                                    onerror="this.src='https://via.placeholder.com/36?text=FC'" class="team-logo"
+                                    alt="Logo">
+                                <span class="team-name">FC CADENCE</span>
+                            </div>
+                            <div class="exam-stats">
+                                <span class="stat-item">0</span>
+                                <span class="stat-item stat-pts">0</span>
+                                <span class="stat-item">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Soholang CUP 2025</h4>
+                    <p>Tournoi de football organisé par l'association Guyane Event's</p>
+                </div>
+                <!-- ... Footer content simplified for brevity ... -->
+                <div class="footer-col">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="index.html#tournoi">Le Tournoi</a></li>
+                        <li><a href="groups.html">Les Poules</a></li>
+                        <li><a href="index.html#infos">Informations</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Guyane Event's. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="animations.js"></script>
+</body>
+
+</html>

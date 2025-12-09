@@ -1,17 +1,17 @@
 // ====================================
 // NAVIGATION
 // ====================================
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
-    
+
     if (navToggle) {
-        navToggle.addEventListener('click', function() {
+        navToggle.addEventListener('click', function () {
             navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
         });
     }
-    
+
     // Close menu when clicking on a link
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
@@ -22,16 +22,62 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
+
+    // ====================================
+    // DROPDOWN TOUCH/CLICK HANDLER
+    // ====================================
+    const dropdowns = document.querySelectorAll('.dropdown > a, .dropdown-submenu > a');
+
+    dropdowns.forEach(dropdownToggle => {
+        dropdownToggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Toggle current dropdown
+            const parent = this.parentElement;
+            const wasActive = parent.classList.contains('active');
+
+            // Close siblings
+            const siblings = parent.parentElement.children;
+            for (let sibling of siblings) {
+                if (sibling !== parent) {
+                    sibling.classList.remove('active');
+                    // Also close children of siblings
+                    const children = sibling.querySelectorAll('.active');
+                    children.forEach(child => child.classList.remove('active'));
+                }
+            }
+
+            // Toggle state
+            if (!wasActive) {
+                parent.classList.add('active');
+            } else {
+                parent.classList.remove('active');
+                // Also close children
+                const children = parent.querySelectorAll('.active');
+                children.forEach(child => child.classList.remove('active'));
+            }
+        });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown.active, .dropdown-submenu.active').forEach(el => {
+                el.classList.remove('active');
+            });
+        }
+    });
+
     // Active link on scroll
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         let scrollPosition = window.scrollY;
-        
+
         document.querySelectorAll('section[id]').forEach(section => {
             const sectionTop = section.offsetTop - 100;
             const sectionHeight = section.offsetHeight;
             const sectionId = section.getAttribute('id');
-            
+
             if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                 document.querySelectorAll('.nav-link').forEach(link => {
                     link.classList.remove('active');
@@ -41,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
-        
+
         // Navbar background on scroll
         const navbar = document.querySelector('.navbar');
         if (scrollPosition > 50) {
@@ -64,14 +110,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             e.preventDefault();
             const target = document.querySelector(href);
             if (target) {
-                const offsetTop = target.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
+                // Let CSS scroll-padding-top handle the offset, or fallback to JS
+                // window.scrollTo({
+                //     top: target.offsetTop - 80,
+                //     behavior: 'smooth'
+                // });
+                // Better approach: use scrollIntoView which respects scroll-padding
+                target.scrollIntoView({
                     behavior: 'smooth'
                 });
+
+                // Update URL hash without jumping
+                history.pushState(null, null, href);
             }
         }
     });
+});
+
+// Handle hash on page load (if necessary, though CSS scroll-padding usually handles it)
+window.addEventListener('load', () => {
+    if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+            setTimeout(() => {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }, 100);
+        }
+    }
 });
 
 // ====================================
@@ -83,21 +150,21 @@ const formContents = document.querySelectorAll('.form-content');
 formTabs.forEach(tab => {
     tab.addEventListener('click', () => {
         const targetTab = tab.getAttribute('data-tab');
-        
+
         // Remove active class from all tabs and contents
         formTabs.forEach(t => t.classList.remove('active'));
         formContents.forEach(content => content.classList.remove('active'));
-        
+
         // Add active class to clicked tab
         tab.classList.add('active');
-        
+
         // Show corresponding form
         const targetForm = document.getElementById(targetTab + 'Form');
         if (targetForm) {
             targetForm.classList.add('active');
         }
     });
-    
+
     // ====================================
     // TEAM TYPE PRICE UPDATE & REGISTRATION CHECK
     // ====================================
@@ -105,10 +172,10 @@ formTabs.forEach(tab => {
     const priceDisplay = document.getElementById('priceDisplay');
 
     if (teamTypeSelect && priceDisplay) {
-        teamTypeSelect.addEventListener('change', function() {
+        teamTypeSelect.addEventListener('change', function () {
             const priceAmount = priceDisplay.querySelector('.price-amount');
             const priceDetails = priceDisplay.querySelector('.price-details');
-            
+
             if (this.value === 'masculine') {
                 // Afficher le modal des inscriptions closes
                 showRegistrationClosedModal();
@@ -133,7 +200,7 @@ formTabs.forEach(tab => {
     }
 
     // Fonction pour fermer le modal (globale pour onclick)
-    window.closeRegistrationModal = function() {
+    window.closeRegistrationModal = function () {
         const modal = document.getElementById('closedModal');
         if (modal) {
             modal.style.display = 'none';
@@ -142,7 +209,7 @@ formTabs.forEach(tab => {
     }
 
     // Fermer le modal en cliquant à l'extérieur
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         const modal = document.getElementById('closedModal');
         if (e.target === modal) {
             closeRegistrationModal();
@@ -150,12 +217,12 @@ formTabs.forEach(tab => {
     });
 
     // Fermer le modal avec la touche Échap
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
             closeRegistrationModal();
         }
     });
-    
+
     // ====================================
     // COUNTDOWN TIMER - DÉSACTIVÉ (voir fin du fichier pour la version active)
     // ====================================
@@ -170,31 +237,31 @@ formTabs.forEach(tab => {
 // Registration Form
 const registrationForm = document.getElementById('registrationForm');
 if (registrationForm) {
-    registrationForm.addEventListener('submit', function(e) {
+    registrationForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         // Collect form data
         const formData = new FormData(this);
         const data = {};
         formData.forEach((value, key) => {
             data[key] = value;
         });
-        
+
         console.log('Inscription data:', data);
-        
+
         // Here you would normally send data to a server
         // For now, we'll just show a success message
-        
+
         // Hide any existing messages
         document.getElementById('errorMessage').classList.remove('show');
-        
+
         // Show success message
         const successMsg = document.getElementById('successMessage');
         successMsg.classList.add('show');
-        
+
         // Reset form
         this.reset();
-        
+
         // Reset price display
         if (priceDisplay) {
             const priceAmount = priceDisplay.querySelector('.price-amount');
@@ -202,18 +269,18 @@ if (registrationForm) {
             priceAmount.textContent = '450€';
             priceDetails.textContent = 'Par équipe (16 joueurs maximum)';
         }
-        
+
         // Hide message after 5 seconds
         setTimeout(() => {
             successMsg.classList.remove('show');
         }, 5000);
-        
+
         // Send to WhatsApp (optional)
         const phone = '+594694985035';
         const teamType = data.teamType === 'masculine' ? 'Masculine' : 'Féminine';
         const message = `🏆 NOUVELLE INSCRIPTION SOHOLANG CUP\n\nÉquipe: ${teamType}\nNom: ${data.teamName}\nQuartier: ${data.district}\nResponsable: ${data.managerFirstName} ${data.managerName}\nTél: ${data.phone}\nEmail: ${data.email}\nJoueurs: ${data.playerCount}\n${data.comments ? '\nCommentaires: ' + data.comments : ''}`;
         const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-        
+
         // Uncomment to enable WhatsApp redirect
         // window.open(whatsappUrl, '_blank');
     });
@@ -222,26 +289,26 @@ if (registrationForm) {
 // General Contact Form
 const generalForm = document.getElementById('generalForm');
 if (generalForm) {
-    generalForm.addEventListener('submit', function(e) {
+    generalForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         const formData = new FormData(this);
         const data = {};
         formData.forEach((value, key) => {
             data[key] = value;
         });
-        
+
         console.log('General contact data:', data);
-        
+
         document.getElementById('genErrorMessage').classList.remove('show');
         const successMsg = document.getElementById('genSuccessMessage');
         successMsg.classList.add('show');
         this.reset();
-        
+
         setTimeout(() => {
             successMsg.classList.remove('show');
         }, 5000);
-        
+
         // WhatsApp option
         const phone = '+594694985035';
         const message = `📧 NOUVEAU MESSAGE\n\nNom: ${data.genFirstName} ${data.genName}\nTél: ${data.genPhone || 'Non renseigné'}\nEmail: ${data.genEmail}\nSujet: ${data.subject}\n\nMessage:\n${data.genMessage}`;
@@ -253,26 +320,26 @@ if (generalForm) {
 // Partnership Form
 const partnershipForm = document.getElementById('partnershipForm');
 if (partnershipForm) {
-    partnershipForm.addEventListener('submit', function(e) {
+    partnershipForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         const formData = new FormData(this);
         const data = {};
         formData.forEach((value, key) => {
             data[key] = value;
         });
-        
+
         console.log('Partnership data:', data);
-        
+
         document.getElementById('partErrorMessage').classList.remove('show');
         const successMsg = document.getElementById('partSuccessMessage');
         successMsg.classList.add('show');
         this.reset();
-        
+
         setTimeout(() => {
             successMsg.classList.remove('show');
         }, 5000);
-        
+
         // WhatsApp option
         const phone = '+594694985035';
         const partnershipTypes = {
@@ -295,10 +362,10 @@ const faqItems = document.querySelectorAll('.faq-item');
 faqItems.forEach(item => {
     item.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
-        
+
         // Close all FAQ items
         faqItems.forEach(i => i.classList.remove('active'));
-        
+
         // Open clicked item if it wasn't active
         if (!isActive) {
             item.classList.add('active');
@@ -323,6 +390,25 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
+const bracketObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            // Special case for bracket to trigger specific flow
+            if (entry.target.classList.contains('tournament-bracket')) {
+                // Ensure text stays visible if animation fails or js disabled handling
+                entry.target.style.opacity = 1;
+            }
+        }
+    });
+}, {
+    threshold: 0.1
+});
+
+document.querySelectorAll('.animate-on-scroll, .tournament-bracket').forEach((el) => {
+    bracketObserver.observe(el);
+});
+
 // Observe elements for animation
 document.querySelectorAll('.highlight-card, .info-card, .reward-card, .partner-card, .mission-card, .value-card, .impact-card').forEach(el => {
     el.style.opacity = '0';
@@ -338,13 +424,13 @@ function updateCountdown() {
     const eventDate = new Date('December 26, 2025 08:00:00').getTime();
     const now = new Date().getTime();
     const distance = eventDate - now;
-    
+
     if (distance > 0) {
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
+
         // You can display this in your HTML if you add a countdown element
         console.log(`Countdown: ${days}j ${hours}h ${minutes}m ${seconds}s`);
     }
@@ -358,13 +444,13 @@ function updateCountdown() {
 // ====================================
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
-    
+
     // Animate hero content
     const heroContent = document.querySelector('.hero-content');
     if (heroContent) {
         heroContent.style.opacity = '0';
         heroContent.style.transform = 'translateY(30px)';
-        
+
         setTimeout(() => {
             heroContent.style.transition = 'opacity 1s ease, transform 1s ease';
             heroContent.style.opacity = '1';
@@ -383,7 +469,7 @@ function validateEmail(email) {
 
 // Add email validation to forms
 document.querySelectorAll('input[type="email"]').forEach(input => {
-    input.addEventListener('blur', function() {
+    input.addEventListener('blur', function () {
         if (this.value && !validateEmail(this.value)) {
             this.style.borderColor = '#DC3545';
             if (!this.nextElementSibling || !this.nextElementSibling.classList.contains('error-text')) {
@@ -408,7 +494,7 @@ document.querySelectorAll('input[type="email"]').forEach(input => {
 // PHONE VALIDATION (French Guiana format)
 // ====================================
 document.querySelectorAll('input[type="tel"]').forEach(input => {
-    input.addEventListener('input', function(e) {
+    input.addEventListener('input', function (e) {
         // Allow only numbers, spaces, and + sign
         this.value = this.value.replace(/[^\d\s+]/g, '');
     });
@@ -420,25 +506,25 @@ console.log('✅ Soholang CUP Website - Scripts loaded successfully!');
 // FORCER L'AFFICHAGE DES SECTIONS
 // ====================================
 // S'assurer que toutes les sections sont visibles dès le chargement
-(function() {
+(function () {
     // Attendre que le DOM soit chargé
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', ensureVisibility);
     } else {
         ensureVisibility();
     }
-    
+
     function ensureVisibility() {
         // Sélectionner toutes les sections importantes
         const sections = document.querySelectorAll('.highlights, .about-tournament, .tournament-info, .highlight-card, .info-card');
-        
-        sections.forEach(function(section) {
+
+        sections.forEach(function (section) {
             // S'assurer que l'opacité est à 1 et la transformation est normale
             section.style.opacity = '1';
             section.style.visibility = 'visible';
             section.style.transform = 'translateY(0)';
         });
-        
+
         console.log('✅ Visibilité des sections forcée');
     }
 })();
@@ -446,52 +532,52 @@ console.log('✅ Soholang CUP Website - Scripts loaded successfully!');
 // ====================================
 // COMPTE À REBOURS - EXÉCUTION IMMÉDIATE
 // ====================================
-(function() {
+(function () {
     console.log('🚀 LANCEMENT IMMÉDIAT DU COMPTE À REBOURS');
-    
+
     // Date cible : 26 décembre 2025 à 8h00
     const targetDate = new Date(2025, 11, 26, 8, 0, 0);
     console.log('📅 Date cible:', targetDate.toString());
-    
+
     function updateCountdown() {
         const now = new Date();
         const diff = targetDate - now;
-        
+
         if (diff <= 0) {
             console.log('⏰ Le tournoi est commencé ou passé');
             return;
         }
-        
+
         // Calculs
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
         const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-        
+
         // Récupération des éléments
         const daysEl = document.getElementById('days');
         const hoursEl = document.getElementById('hours');
         const minutesEl = document.getElementById('minutes');
         const secondsEl = document.getElementById('seconds');
-        
+
         // Vérification
         if (!daysEl || !hoursEl || !minutesEl || !secondsEl) {
             console.error('❌ ERREUR: Éléments du compte à rebours non trouvés!');
             console.log('Days:', daysEl, 'Hours:', hoursEl, 'Minutes:', minutesEl, 'Seconds:', secondsEl);
             return;
         }
-        
+
         // Mise à jour
         daysEl.textContent = String(days).padStart(2, '0');
         hoursEl.textContent = String(hours).padStart(2, '0');
         minutesEl.textContent = String(minutes).padStart(2, '0');
         secondsEl.textContent = String(seconds).padStart(2, '0');
     }
-    
+
     // Première mise à jour immédiate
     updateCountdown();
     console.log('✅ Première mise à jour effectuée');
-    
+
     // Mise à jour toutes les secondes
     const intervalId = setInterval(updateCountdown, 1000);
     console.log('⏱️ Interval démarré, ID:', intervalId);
@@ -516,21 +602,21 @@ function closeDemoModal() {
     const modal = document.getElementById('demoModal');
     const form = document.getElementById('demoRegistrationForm');
     const successMessage = document.getElementById('demoSuccessMessage');
-    
+
     if (modal) {
         modal.classList.remove('show');
         document.body.style.overflow = ''; // Réactiver le scroll
-        
+
         // Réinitialiser le formulaire et masquer le message de succès
         if (form) form.reset();
         if (successMessage) successMessage.classList.remove('show');
-        
+
         console.log('✅ Modal démos fermé');
     }
 }
 
 // Fermer le modal en cliquant à l'extérieur
-document.addEventListener('click', function(e) {
+document.addEventListener('click', function (e) {
     const modal = document.getElementById('demoModal');
     if (e.target === modal) {
         closeDemoModal();
@@ -538,7 +624,7 @@ document.addEventListener('click', function(e) {
 });
 
 // Fermer le modal avec la touche Échap
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
     const modal = document.getElementById('demoModal');
     if (e.key === 'Escape' && modal && modal.classList.contains('show')) {
         closeDemoModal();
@@ -548,25 +634,25 @@ document.addEventListener('keydown', function(e) {
 // Gestion de la soumission du formulaire
 const demoForm = document.getElementById('demoRegistrationForm');
 if (demoForm) {
-    demoForm.addEventListener('submit', function(e) {
+    demoForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        
+
         // Collecter les données du formulaire
         const formData = new FormData(this);
         const data = {};
         formData.forEach((value, key) => {
             data[key] = value;
         });
-        
+
         console.log('📋 Inscription démos:', data);
-        
+
         // Masquer le formulaire et afficher le message de succès
         this.style.display = 'none';
         const successMessage = document.getElementById('demoSuccessMessage');
         if (successMessage) {
             successMessage.classList.add('show');
         }
-        
+
         // Message WhatsApp (optionnel)
         const phone = '+594694985035';
         const activityLabels = {
@@ -580,13 +666,13 @@ if (demoForm) {
             'intermediate': 'Intermédiaire',
             'advanced': 'Confirmé'
         };
-        
+
         const message = `🔥 INSCRIPTION DÉMOS STREET WORKOUT\n\nNom: ${data.firstName} ${data.lastName}\nTél: ${data.phone}\nEmail: ${data.email || 'Non renseigné'}\nActivité: ${activityLabels[data.activity]}\nNiveau: ${levelLabels[data.level]}\n${data.comments ? '\nCommentaires: ' + data.comments : ''}`;
         const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-        
+
         // 📱 Envoyer vers WhatsApp
         window.open(whatsappUrl, '_blank');
-        
+
         // 📧 Envoyer par Email avec EmailJS
         if (typeof emailjs !== 'undefined') {
             emailjs.send('service_1qxo366', 'template_yrcw8lu', {
@@ -599,13 +685,13 @@ if (demoForm) {
                 comments: data.comments || 'Aucun commentaire',
                 message: message
             })
-            .then(function(response) {
-                console.log('✅ Email envoyé avec succès à Verda-Joseph@hotmail.fr!', response.status, response.text);
-            }, function(error) {
-                console.error('❌ Erreur envoi email:', error);
-            });
+                .then(function (response) {
+                    console.log('✅ Email envoyé avec succès à Verda-Joseph@hotmail.fr!', response.status, response.text);
+                }, function (error) {
+                    console.error('❌ Erreur envoi email:', error);
+                });
         }
-        
+
         // Fermer automatiquement après 5 secondes
         setTimeout(() => {
             closeDemoModal();
