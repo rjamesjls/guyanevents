@@ -283,7 +283,7 @@ if (registrationForm) {
 
         try {
             await sendEmail({
-                to: 'Verda-Joseph@hotmail.fr', // Destinataire principal
+                to: 'contact@guyanevents.fr', // Destinataire principal
                 reply_to: data.email,
                 subject: `🏆 Inscription Soholang Cup - ${data.teamName}`,
                 html: `
@@ -348,7 +348,7 @@ if (generalForm) {
 
         try {
             await sendEmail({
-                to: 'Verda-Joseph@hotmail.fr',
+                to: 'contact@guyanevents.fr',
                 reply_to: data.genEmail,
                 subject: `📧 Contact Général - ${data.subject}`,
                 html: `
@@ -406,7 +406,7 @@ if (partnershipForm) {
             };
 
             await sendEmail({
-                to: 'Verda-Joseph@hotmail.fr',
+                to: 'contact@guyanevents.fr',
                 reply_to: data.partEmail,
                 subject: `🤝 Proposition de Partenariat - ${data.companyName}`,
                 html: `
@@ -775,7 +775,7 @@ if (demoForm) {
 
         try {
             await sendEmail({
-                to: 'Verda-Joseph@hotmail.fr',
+                to: 'contact@guyanevents.fr',
                 reply_to: data.email,
                 subject: `🔥 Inscription Démos - ${data.firstName} ${data.lastName}`,
                 html: `

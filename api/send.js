@@ -19,8 +19,8 @@ export default async function handler(req, res) {
                 'Authorization': `Bearer ${RESEND_API_KEY}`,
             },
             body: JSON.stringify({
-                from: 'Soholang Cup <contact@resend.dev>', // Update this if user has a custom domain verified
-                to: ['Verda-Joseph@hotmail.fr'], // Hardcoded receiver as per script.js logic, or make it dynamic if needed. Script.js assumes one receiver.
+                from: 'Soholang Cup <onboarding@resend.dev>',
+                to: [to || 'contact@guyanevents.fr'],
                 reply_to: req.body.reply_to || undefined,
                 subject: subject,
                 html: html,
