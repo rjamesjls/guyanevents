@@ -231,13 +231,38 @@ formTabs.forEach(tab => {
 });
 
 // ====================================
+// EMAIL HELPER
+// ====================================
+async function sendEmail(data) {
+    try {
+        const response = await fetch('/api/send', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error || 'Erreur lors de l\'envoi');
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error('Erreur sendEmail:', error);
+        throw error;
+    }
+}
+
+// ====================================
 // FORM SUBMISSIONS
 // ====================================
 
 // Registration Form
 const registrationForm = document.getElementById('registrationForm');
 if (registrationForm) {
-    registrationForm.addEventListener('submit', function (e) {
+    registrationForm.addEventListener('submit', async function (e) {
         e.preventDefault();
 
         // Collect form data
@@ -249,47 +274,63 @@ if (registrationForm) {
 
         console.log('Inscription data:', data);
 
-        // Here you would normally send data to a server
-        // For now, we'll just show a success message
-
-        // Hide any existing messages
+        // UI Updates
         document.getElementById('errorMessage').classList.remove('show');
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.textContent = 'Envoi en cours...';
+        submitBtn.disabled = true;
 
-        // Show success message
-        const successMsg = document.getElementById('successMessage');
-        successMsg.classList.add('show');
+        try {
+            await sendEmail({
+                to: 'Verda-Joseph@hotmail.fr', // Destinataire principal
+                reply_to: data.email,
+                subject: `🏆 Inscription Soholang Cup - ${data.teamName}`,
+                html: `
+                    <h2>Nouvelle Inscription</h2>
+                    <p><strong>Type d'équipe:</strong> ${data.teamType === 'masculine' ? 'Masculine' : 'Féminine'}</p>
+                    <p><strong>Nom de l'équipe:</strong> ${data.teamName}</p>
+                    <p><strong>Quartier:</strong> ${data.district}</p>
+                    <p><strong>Responsable:</strong> ${data.managerFirstName} ${data.managerName}</p>
+                    <p><strong>Téléphone:</strong> ${data.phone}</p>
+                    <p><strong>Email:</strong> ${data.email}</p>
+                    <p><strong>Joueurs:</strong> ${data.playerCount}</p>
+                    <p><strong>Commentaires:</strong> ${data.comments || 'Aucun'}</p>
+                `
+            });
 
-        // Reset form
-        this.reset();
+            // Success handling
+            const successMsg = document.getElementById('successMessage');
+            successMsg.classList.add('show');
+            this.reset();
 
-        // Reset price display
-        if (priceDisplay) {
-            const priceAmount = priceDisplay.querySelector('.price-amount');
-            const priceDetails = priceDisplay.querySelector('.price-details');
-            priceAmount.textContent = '450€';
-            priceDetails.textContent = 'Par équipe (16 joueurs maximum)';
+            if (typeof priceDisplay !== 'undefined' && priceDisplay) {
+                const priceAmount = priceDisplay.querySelector('.price-amount');
+                const priceDetails = priceDisplay.querySelector('.price-details');
+                if (priceAmount) priceAmount.textContent = '450€';
+                if (priceDetails) priceDetails.textContent = 'Par équipe (16 joueurs maximum)';
+            }
+
+            setTimeout(() => {
+                successMsg.classList.remove('show');
+            }, 5000);
+
+        } catch (error) {
+            console.error(error);
+            const errorMsg = document.getElementById('errorMessage');
+            errorMsg.textContent = '❌ Une erreur est survenue. Veuillez réessayer.';
+            errorMsg.classList.add('show');
+        } finally {
+            submitBtn.textContent = originalBtnText;
+            submitBtn.disabled = false;
         }
-
-        // Hide message after 5 seconds
-        setTimeout(() => {
-            successMsg.classList.remove('show');
-        }, 5000);
-
-        // Send to WhatsApp (optional)
-        const phone = '+594694985035';
-        const teamType = data.teamType === 'masculine' ? 'Masculine' : 'Féminine';
-        const message = `🏆 NOUVELLE INSCRIPTION SOHOLANG CUP\n\nÉquipe: ${teamType}\nNom: ${data.teamName}\nQuartier: ${data.district}\nResponsable: ${data.managerFirstName} ${data.managerName}\nTél: ${data.phone}\nEmail: ${data.email}\nJoueurs: ${data.playerCount}\n${data.comments ? '\nCommentaires: ' + data.comments : ''}`;
-        const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-
-        // Uncomment to enable WhatsApp redirect
-        // window.open(whatsappUrl, '_blank');
     });
 }
 
 // General Contact Form
 const generalForm = document.getElementById('generalForm');
 if (generalForm) {
-    generalForm.addEventListener('submit', function (e) {
+    generalForm.addEventListener('submit', async function (e) {
         e.preventDefault();
 
         const formData = new FormData(this);
@@ -298,29 +339,49 @@ if (generalForm) {
             data[key] = value;
         });
 
-        console.log('General contact data:', data);
-
+        // UI Updates
         document.getElementById('genErrorMessage').classList.remove('show');
-        const successMsg = document.getElementById('genSuccessMessage');
-        successMsg.classList.add('show');
-        this.reset();
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.textContent = 'Envoi en cours...';
+        submitBtn.disabled = true;
 
-        setTimeout(() => {
-            successMsg.classList.remove('show');
-        }, 5000);
+        try {
+            await sendEmail({
+                to: 'Verda-Joseph@hotmail.fr',
+                reply_to: data.genEmail,
+                subject: `📧 Contact Général - ${data.subject}`,
+                html: `
+                    <h2>Nouveau Message de Contact</h2>
+                    <p><strong>Nom:</strong> ${data.genFirstName} ${data.genName}</p>
+                    <p><strong>Email:</strong> ${data.genEmail}</p>
+                    <p><strong>Téléphone:</strong> ${data.genPhone || 'Non renseigné'}</p>
+                    <p><strong>Sujet:</strong> ${data.subject}</p>
+                    <p><strong>Message:</strong><br>${data.genMessage.replace(/\n/g, '<br>')}</p>
+                `
+            });
 
-        // WhatsApp option
-        const phone = '+594694985035';
-        const message = `📧 NOUVEAU MESSAGE\n\nNom: ${data.genFirstName} ${data.genName}\nTél: ${data.genPhone || 'Non renseigné'}\nEmail: ${data.genEmail}\nSujet: ${data.subject}\n\nMessage:\n${data.genMessage}`;
-        const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-        // window.open(whatsappUrl, '_blank');
+            const successMsg = document.getElementById('genSuccessMessage');
+            successMsg.classList.add('show');
+            this.reset();
+
+            setTimeout(() => {
+                successMsg.classList.remove('show');
+            }, 5000);
+        } catch (error) {
+            const errorMsg = document.getElementById('genErrorMessage');
+            errorMsg.classList.add('show');
+        } finally {
+            submitBtn.textContent = originalBtnText;
+            submitBtn.disabled = false;
+        }
     });
 }
 
 // Partnership Form
 const partnershipForm = document.getElementById('partnershipForm');
 if (partnershipForm) {
-    partnershipForm.addEventListener('submit', function (e) {
+    partnershipForm.addEventListener('submit', async function (e) {
         e.preventDefault();
 
         const formData = new FormData(this);
@@ -329,30 +390,76 @@ if (partnershipForm) {
             data[key] = value;
         });
 
-        console.log('Partnership data:', data);
-
+        // UI Updates
         document.getElementById('partErrorMessage').classList.remove('show');
-        const successMsg = document.getElementById('partSuccessMessage');
-        successMsg.classList.add('show');
-        this.reset();
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.textContent = 'Envoi en cours...';
+        submitBtn.disabled = true;
 
-        setTimeout(() => {
-            successMsg.classList.remove('show');
-        }, 5000);
+        try {
+            const partnershipTypes = {
+                'sponsor': 'Sponsor officiel',
+                'supplier': 'Fournisseur',
+                'media': 'Partenaire média',
+                'other': 'Autre'
+            };
 
-        // WhatsApp option
-        const phone = '+594694985035';
-        const partnershipTypes = {
-            'sponsor': 'Sponsor officiel',
-            'supplier': 'Fournisseur',
-            'media': 'Partenaire média',
-            'other': 'Autre'
-        };
-        const message = `🤝 DEMANDE DE PARTENARIAT\n\nEntreprise: ${data.companyName}\nContact: ${data.contactFirstName} ${data.contactName}\nTél: ${data.partPhone}\nEmail: ${data.partEmail}\nType: ${partnershipTypes[data.partnershipType]}\n\nProposition:\n${data.partMessage}`;
-        const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-        // window.open(whatsappUrl, '_blank');
+            await sendEmail({
+                to: 'Verda-Joseph@hotmail.fr',
+                reply_to: data.partEmail,
+                subject: `🤝 Proposition de Partenariat - ${data.companyName}`,
+                html: `
+                    <h2>Nouvelle Demande de Partenariat</h2>
+                    <p><strong>Entreprise:</strong> ${data.companyName}</p>
+                    <p><strong>Contact:</strong> ${data.contactFirstName} ${data.contactName}</p>
+                    <p><strong>Email:</strong> ${data.partEmail}</p>
+                    <p><strong>Téléphone:</strong> ${data.partPhone}</p>
+                    <p><strong>Type:</strong> ${partnershipTypes[data.partnershipType]}</p>
+                    <p><strong>Message:</strong><br>${data.partMessage.replace(/\n/g, '<br>')}</p>
+                `
+            });
+
+            const successMsg = document.getElementById('partSuccessMessage');
+            successMsg.classList.add('show');
+            this.reset();
+
+            setTimeout(() => {
+                successMsg.classList.remove('show');
+            }, 5000);
+        } catch (error) {
+            const errorMsg = document.getElementById('partErrorMessage');
+            errorMsg.classList.add('show');
+        } finally {
+            submitBtn.textContent = originalBtnText;
+            submitBtn.disabled = false;
+        }
     });
 }
+
+// ====================================
+// FAQ ACCORDION & OTHER SCRIPTS
+// ====================================
+// (Keep existing code for FAQ, Scroll Animations, Countdown, etc.)
+// ... (Lines 358-704 largely untouched, checking what needs to be preserved)
+
+// Wait, I am replacing from line 234 to 704?? No, I should verify where methods end.
+// Lines 234-355 contain the form logic.
+// Lines 587-701 contain the Demo form logic. I must update that too.
+// I will target two blocks or handle it carefully.
+
+// Let's look at the tool usage. It's `replace_file_content`. I must act on a contiguous block.
+// The provided `ReplacementContent` covers lines 234 to 355 (Registration, General, Partnership).
+// I also need to update the Demo form later.
+
+// Wait, the ReplacementContent I prepared above only covers the first 3 forms. 
+// I will apply this change first (replacing lines 233 to 355).
+// Then I will do a second replace for the Demo form (lines 635-700).
+
+// Let's split this into two calls or use `multi_replace_file_content` if possible.
+// `default_api:multi_replace_file_content` supports multiple chunks. This is perfect.
+
+
 
 // ====================================
 // FAQ ACCORDION
@@ -634,7 +741,7 @@ document.addEventListener('keydown', function (e) {
 // Gestion de la soumission du formulaire
 const demoForm = document.getElementById('demoRegistrationForm');
 if (demoForm) {
-    demoForm.addEventListener('submit', function (e) {
+    demoForm.addEventListener('submit', async function (e) {
         e.preventDefault();
 
         // Collecter les données du formulaire
@@ -646,15 +753,9 @@ if (demoForm) {
 
         console.log('📋 Inscription démos:', data);
 
-        // Masquer le formulaire et afficher le message de succès
-        this.style.display = 'none';
-        const successMessage = document.getElementById('demoSuccessMessage');
-        if (successMessage) {
-            successMessage.classList.add('show');
-        }
+        // Masquer le formulaire et afficher le message de succès immédiatement (pour UX)
+        // Mais nous allons attendre la réponse de l'API pour confirmer
 
-        // Message WhatsApp (optionnel)
-        const phone = '+594694985035';
         const activityLabels = {
             'demos': '💪 Démonstrations (Spectateur)',
             'initiation': '🏅 Initiation (Essayer les barres)',
@@ -667,36 +768,47 @@ if (demoForm) {
             'advanced': 'Confirmé'
         };
 
-        const message = `🔥 INSCRIPTION DÉMOS STREET WORKOUT\n\nNom: ${data.firstName} ${data.lastName}\nTél: ${data.phone}\nEmail: ${data.email || 'Non renseigné'}\nActivité: ${activityLabels[data.activity]}\nNiveau: ${levelLabels[data.level]}\n${data.comments ? '\nCommentaires: ' + data.comments : ''}`;
-        const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.textContent = 'Envoi...';
+        submitBtn.disabled = true;
 
-        // 📱 Envoyer vers WhatsApp
-        window.open(whatsappUrl, '_blank');
+        try {
+            await sendEmail({
+                to: 'Verda-Joseph@hotmail.fr',
+                reply_to: data.email,
+                subject: `🔥 Inscription Démos - ${data.firstName} ${data.lastName}`,
+                html: `
+                    <h2>Inscription Démos Street Workout</h2>
+                    <p><strong>Nom:</strong> ${data.firstName} ${data.lastName}</p>
+                    <p><strong>Email:</strong> ${data.email || 'Non renseigné'}</p>
+                    <p><strong>Téléphone:</strong> ${data.phone}</p>
+                    <p><strong>Activité:</strong> ${activityLabels[data.activity]}</p>
+                    <p><strong>Niveau:</strong> ${levelLabels[data.level]}</p>
+                    <p><strong>Commentaires:</strong> ${data.comments || 'Aucun'}</p>
+                `
+            });
 
-        // 📧 Envoyer par Email avec EmailJS
-        if (typeof emailjs !== 'undefined') {
-            emailjs.send('service_1qxo366', 'template_yrcw8lu', {
-                to_email: 'Verda-Joseph@hotmail.fr',
-                from_name: data.firstName + ' ' + data.lastName,
-                from_email: data.email || 'Non renseigné',
-                phone: data.phone,
-                activity: activityLabels[data.activity],
-                level: levelLabels[data.level],
-                comments: data.comments || 'Aucun commentaire',
-                message: message
-            })
-                .then(function (response) {
-                    console.log('✅ Email envoyé avec succès à Verda-Joseph@hotmail.fr!', response.status, response.text);
-                }, function (error) {
-                    console.error('❌ Erreur envoi email:', error);
-                });
+            this.style.display = 'none';
+            const successMessage = document.getElementById('demoSuccessMessage');
+            if (successMessage) {
+                successMessage.classList.add('show');
+            }
+
+            // Fermer automatiquement après 5 secondes
+            setTimeout(() => {
+                closeDemoModal();
+                this.style.display = 'block'; // Réafficher le formulaire pour la prochaine fois
+            }, 5000);
+
+        } catch (error) {
+            alert('Une erreur est survenue lors de l\'inscription. Veuillez réessayer.');
+            console.error('Erreur inscription démos:', error);
+            this.style.display = 'block';
+        } finally {
+            submitBtn.textContent = originalBtnText;
+            submitBtn.disabled = false;
         }
-
-        // Fermer automatiquement après 5 secondes
-        setTimeout(() => {
-            closeDemoModal();
-            this.style.display = 'block'; // Réafficher le formulaire pour la prochaine fois
-        }, 5000);
     });
 }
 
