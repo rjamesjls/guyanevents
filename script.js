@@ -628,6 +628,7 @@ document.querySelectorAll('input[type="tel"]').forEach(input => {
 });
 
 console.log('✅ Soholang CUP Website - Scripts loaded successfully!');
+console.log('🚀 VERSION: MAILTO MODE - 2025-12-13T18:45'); // Version check
 
 // ====================================
 // FORCER L'AFFICHAGE DES SECTIONS
