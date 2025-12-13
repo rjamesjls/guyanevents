@@ -823,3 +823,4 @@ if (demoForm) {
 }
 
 console.log('✅ Modal démos Street Workout initialisé');
+// Force redeploy - 2025-12-13
