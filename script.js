@@ -350,12 +350,11 @@ if (generalForm) {
         submitBtn.disabled = true;
 
         try {
-            try {
-                await sendEmail({
-                    to: 'contact@guyanevents.fr',
-                    reply_to: data.genEmail,
-                    subject: `📧 Contact Général - ${data.subject}`,
-                    html: `
+            await sendEmail({
+                to: 'contact@guyanevents.fr',
+                reply_to: data.genEmail,
+                subject: `📧 Contact Général - ${data.subject}`,
+                html: `
                     <h2>Nouveau Message de Contact</h2>
                     <p><strong>Nom:</strong> ${data.genFirstName} ${data.genName}</p>
                     <p><strong>Email:</strong> ${data.genEmail}</p>
@@ -363,23 +362,23 @@ if (generalForm) {
                     <p><strong>Sujet:</strong> ${data.subject}</p>
                     <p><strong>Message:</strong><br>${data.genMessage.replace(/\n/g, '<br>')}</p>
                 `
-                });
+            });
 
-                const successMsg = document.getElementById('genSuccessMessage');
-                successMsg.classList.add('show');
-                this.reset();
+            const successMsg = document.getElementById('genSuccessMessage');
+            successMsg.classList.add('show');
+            this.reset();
 
-                setTimeout(() => {
-                    successMsg.classList.remove('show');
-                }, 5000);
-            } catch (error) {
-                const errorMsg = document.getElementById('genErrorMessage');
-                errorMsg.classList.add('show');
-            } finally {
-                submitBtn.textContent = originalBtnText;
-                submitBtn.disabled = false;
-            }
-        });
+            setTimeout(() => {
+                successMsg.classList.remove('show');
+            }, 5000);
+        } catch (error) {
+            const errorMsg = document.getElementById('genErrorMessage');
+            errorMsg.classList.add('show');
+        } finally {
+            submitBtn.textContent = originalBtnText;
+            submitBtn.disabled = false;
+        }
+    });
 }
 
 // Partnership Form
@@ -409,19 +408,11 @@ if (partnershipForm) {
                 'other': 'Autre'
             };
 
-            try {
-                const partnershipTypes = {
-                    'sponsor': 'Sponsor officiel',
-                    'supplier': 'Fournisseur',
-                    'media': 'Partenaire média',
-                    'other': 'Autre'
-                };
-
-                await sendEmail({
-                    to: 'contact@guyanevents.fr',
-                    reply_to: data.partEmail,
-                    subject: `🤝 Proposition de Partenariat - ${data.companyName}`,
-                    html: `
+            await sendEmail({
+                to: 'contact@guyanevents.fr',
+                reply_to: data.partEmail,
+                subject: `🤝 Proposition de Partenariat - ${data.companyName}`,
+                html: `
                     <h2>Nouvelle Demande de Partenariat</h2>
                     <p><strong>Entreprise:</strong> ${data.companyName}</p>
                     <p><strong>Contact:</strong> ${data.contactFirstName} ${data.contactName}</p>
@@ -430,23 +421,23 @@ if (partnershipForm) {
                     <p><strong>Type:</strong> ${partnershipTypes[data.partnershipType]}</p>
                     <p><strong>Message:</strong><br>${data.partMessage.replace(/\n/g, '<br>')}</p>
                 `
-                });
+            });
 
-                const successMsg = document.getElementById('partSuccessMessage');
-                successMsg.classList.add('show');
-                this.reset();
+            const successMsg = document.getElementById('partSuccessMessage');
+            successMsg.classList.add('show');
+            this.reset();
 
-                setTimeout(() => {
-                    successMsg.classList.remove('show');
-                }, 5000);
-            } catch (error) {
-                const errorMsg = document.getElementById('partErrorMessage');
-                errorMsg.classList.add('show');
-            } finally {
-                submitBtn.textContent = originalBtnText;
-                submitBtn.disabled = false;
-            }
-        });
+            setTimeout(() => {
+                successMsg.classList.remove('show');
+            }, 5000);
+        } catch (error) {
+            const errorMsg = document.getElementById('partErrorMessage');
+            errorMsg.classList.add('show');
+        } finally {
+            submitBtn.textContent = originalBtnText;
+            submitBtn.disabled = false;
+        }
+    });
 }
 
 // ====================================
@@ -786,24 +777,23 @@ if (demoForm) {
         submitBtn.disabled = true;
 
         try {
-            try {
-                const activityLabels = {
-                    'demos': '💪 Démonstrations (Spectateur)',
-                    'initiation': '🏅 Initiation (Essayer les barres)',
-                    'concours': '🏆 Concours de Pompes',
-                    'all': '🔥 Tout ! (Initiation + Concours)'
-                };
-                const levelLabels = {
-                    'beginner': 'Débutant',
-                    'intermediate': 'Intermédiaire',
-                    'advanced': 'Confirmé'
-                };
+            const activityLabels = {
+                'demos': '💪 Démonstrations (Spectateur)',
+                'initiation': '🏅 Initiation (Essayer les barres)',
+                'concours': '🏆 Concours de Pompes',
+                'all': '🔥 Tout ! (Initiation + Concours)'
+            };
+            const levelLabels = {
+                'beginner': 'Débutant',
+                'intermediate': 'Intermédiaire',
+                'advanced': 'Confirmé'
+            };
 
-                await sendEmail({
-                    to: 'contact@guyanevents.fr',
-                    reply_to: data.email,
-                    subject: `🔥 Inscription Démos - ${data.firstName} ${data.lastName}`,
-                    html: `
+            await sendEmail({
+                to: 'contact@guyanevents.fr',
+                reply_to: data.email,
+                subject: `🔥 Inscription Démos - ${data.firstName} ${data.lastName}`,
+                html: `
                     <h2>Inscription Démos Street Workout</h2>
                     <p><strong>Nom:</strong> ${data.firstName} ${data.lastName}</p>
                     <p><strong>Email:</strong> ${data.email || 'Non renseigné'}</p>
@@ -812,33 +802,33 @@ if (demoForm) {
                     <p><strong>Niveau:</strong> ${levelLabels[data.level]}</p>
                     <p><strong>Commentaires:</strong> ${data.comments || 'Aucun'}</p>
                 `
-                });
+            });
 
-                this.style.display = 'none';
-                const successMessage = document.getElementById('demoSuccessMessage');
-                if (successMessage) {
-                    successMessage.classList.add('show');
-                }
+            this.style.display = 'none';
+            const successMessage = document.getElementById('demoSuccessMessage');
+            if (successMessage) {
+                successMessage.classList.add('show');
+            }
 
-                // Fermer automatiquement après 5 secondes
-                setTimeout(() => {
-                    closeDemoModal();
-                }, 5000);
+            // Fermer automatiquement après 5 secondes
+            setTimeout(() => {
+                closeDemoModal();
+            }, 5000);
 
-            } catch (error) {
-                alert(`❌ Erreur: ${error.message || 'Une erreur est survenue. Veuillez réessayer.'}`);
-                console.error('Erreur inscription démos:', error);
-                this.style.display = 'block';
-            } finally {
-                if (submitBtn) {
-                    submitBtn.innerHTML = originalBtnText;
-                    submitBtn.disabled = false;
-                }
-            } finally {
-                submitBtn.textContent = originalBtnText;
+        } catch (error) {
+            alert(`❌ Erreur: ${error.message || 'Une erreur est survenue. Veuillez réessayer.'}`);
+            console.error('Erreur inscription démos:', error);
+            this.style.display = 'block';
+        } finally {
+            if (submitBtn) {
+                submitBtn.innerHTML = originalBtnText;
                 submitBtn.disabled = false;
             }
-        });
+        } finally {
+            submitBtn.textContent = originalBtnText;
+            submitBtn.disabled = false;
+        }
+    });
 }
 
 console.log('✅ Modal démos Street Workout initialisé');
