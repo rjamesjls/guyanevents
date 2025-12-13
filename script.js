@@ -258,6 +258,12 @@ async function sendEmail(data) {
     }
 }
 
+// function sendMailto(to, subject, body) {
+//     const encodedSubject = encodeURIComponent(subject);
+//     const encodedBody = encodeURIComponent(body);
+//     window.location.href = `mailto:${to}?subject=${encodedSubject}&body=${encodedBody}`;
+// }
+
 // ====================================
 // FORM SUBMISSIONS
 // ====================================
@@ -321,7 +327,7 @@ if (registrationForm) {
         } catch (error) {
             console.error(error);
             const errorMsg = document.getElementById('errorMessage');
-            errorMsg.textContent = '❌ Une erreur est survenue (' + (error.message || 'inconnue') + ')';
+            errorMsg.textContent = `❌ Erreur: ${error.message || 'Une erreur est survenue.'}`;
             errorMsg.classList.add('show');
         } finally {
             submitBtn.textContent = originalBtnText;
@@ -777,18 +783,6 @@ if (demoForm) {
         submitBtn.disabled = true;
 
         try {
-            const activityLabels = {
-                'demos': '💪 Démonstrations (Spectateur)',
-                'initiation': '🏅 Initiation (Essayer les barres)',
-                'concours': '🏆 Concours de Pompes',
-                'all': '🔥 Tout ! (Initiation + Concours)'
-            };
-            const levelLabels = {
-                'beginner': 'Débutant',
-                'intermediate': 'Intermédiaire',
-                'advanced': 'Confirmé'
-            };
-
             await sendEmail({
                 to: 'contact@guyanevents.fr',
                 reply_to: data.email,
