@@ -233,26 +233,17 @@ formTabs.forEach(tab => {
 // ====================================
 // EMAIL HELPER
 // ====================================
-async function sendEmail(data) {
-    try {
-        const response = await fetch('/api/send', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        });
+// ====================================
+// EMAIL HELPER (Désactivé pour usage Mailto)
+// ====================================
+// async function sendEmail(data) {
+//     // ... code désactivé ...
+// }
 
-        if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(errorData.error || 'Erreur lors de l\'envoi');
-        }
-
-        return await response.json();
-    } catch (error) {
-        console.error('Erreur sendEmail:', error);
-        throw error;
-    }
+function sendMailto(to, subject, body) {
+    const encodedSubject = encodeURIComponent(subject);
+    const encodedBody = encodeURIComponent(body);
+    window.location.href = `mailto:${to}?subject=${encodedSubject}&body=${encodedBody}`;
 }
 
 // ====================================
@@ -282,27 +273,37 @@ if (registrationForm) {
         submitBtn.disabled = true;
 
         try {
-            await sendEmail({
-                to: 'contact@guyanevents.fr', // Destinataire principal
-                reply_to: data.email,
-                subject: `🏆 Inscription Soholang Cup - ${data.teamName}`,
-                html: `
-                    <h2>Nouvelle Inscription</h2>
-                    <p><strong>Type d'équipe:</strong> ${data.teamType === 'masculine' ? 'Masculine' : 'Féminine'}</p>
-                    <p><strong>Nom de l'équipe:</strong> ${data.teamName}</p>
-                    <p><strong>Quartier:</strong> ${data.district}</p>
-                    <p><strong>Responsable:</strong> ${data.managerFirstName} ${data.managerName}</p>
-                    <p><strong>Téléphone:</strong> ${data.phone}</p>
-                    <p><strong>Email:</strong> ${data.email}</p>
-                    <p><strong>Joueurs:</strong> ${data.playerCount}</p>
-                    <p><strong>Commentaires:</strong> ${data.comments || 'Aucun'}</p>
-                `
-            });
+            // Construction du corps du mail
+            const mailBody = `
+NOUVELLE INSCRIPTION SOHOLANG CUP
 
-            // Success handling
+TYPE D'ÉQUIPE: ${data.teamType === 'masculine' ? 'Masculine' : 'Féminine'}
+NOM DE L'ÉQUIPE: ${data.teamName}
+QUARTIER: ${data.district}
+
+RESPONSABLE:
+Nom: ${data.managerName}
+Prénom: ${data.managerFirstName}
+Email: ${data.email}
+Téléphone: ${data.phone}
+
+DÉTAILS:
+Nombre de joueurs: ${data.playerCount}
+Commentaires: ${data.comments || 'Aucun'}
+            `;
+
+            sendMailto('contact@guyanevents.fr', `🏆 Inscription Soholang Cup - ${data.teamName}`, mailBody);
+
+            // Success handling (Simulé)
             const successMsg = document.getElementById('successMessage');
             successMsg.classList.add('show');
             this.reset();
+
+            // Re-enable button quickly
+            setTimeout(() => {
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            }, 1000);
 
             if (typeof priceDisplay !== 'undefined' && priceDisplay) {
                 const priceAmount = priceDisplay.querySelector('.price-amount');
@@ -318,9 +319,8 @@ if (registrationForm) {
         } catch (error) {
             console.error(error);
             const errorMsg = document.getElementById('errorMessage');
-            errorMsg.textContent = '❌ Une erreur est survenue. Veuillez réessayer.';
+            errorMsg.textContent = '❌ Une erreur est survenue.';
             errorMsg.classList.add('show');
-        } finally {
             submitBtn.textContent = originalBtnText;
             submitBtn.disabled = false;
         }
@@ -347,23 +347,30 @@ if (generalForm) {
         submitBtn.disabled = true;
 
         try {
-            await sendEmail({
-                to: 'contact@guyanevents.fr',
-                reply_to: data.genEmail,
-                subject: `📧 Contact Général - ${data.subject}`,
-                html: `
-                    <h2>Nouveau Message de Contact</h2>
-                    <p><strong>Nom:</strong> ${data.genFirstName} ${data.genName}</p>
-                    <p><strong>Email:</strong> ${data.genEmail}</p>
-                    <p><strong>Téléphone:</strong> ${data.genPhone || 'Non renseigné'}</p>
-                    <p><strong>Sujet:</strong> ${data.subject}</p>
-                    <p><strong>Message:</strong><br>${data.genMessage.replace(/\n/g, '<br>')}</p>
-                `
-            });
+            const mailBody = `
+CONTACT GÉNÉRAL
+
+NOM: ${data.genName}
+PRÉNOM: ${data.genFirstName}
+EMAIL: ${data.genEmail}
+TÉLÉPHONE: ${data.genPhone || 'Non renseigné'}
+
+SUJET: ${data.subject}
+
+MESSAGE:
+${data.genMessage}
+            `;
+
+            sendMailto('contact@guyanevents.fr', `📧 Contact Général - ${data.subject}`, mailBody);
 
             const successMsg = document.getElementById('genSuccessMessage');
             successMsg.classList.add('show');
             this.reset();
+
+            setTimeout(() => {
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            }, 1000);
 
             setTimeout(() => {
                 successMsg.classList.remove('show');
@@ -371,7 +378,6 @@ if (generalForm) {
         } catch (error) {
             const errorMsg = document.getElementById('genErrorMessage');
             errorMsg.classList.add('show');
-        } finally {
             submitBtn.textContent = originalBtnText;
             submitBtn.disabled = false;
         }
@@ -405,24 +411,30 @@ if (partnershipForm) {
                 'other': 'Autre'
             };
 
-            await sendEmail({
-                to: 'contact@guyanevents.fr',
-                reply_to: data.partEmail,
-                subject: `🤝 Proposition de Partenariat - ${data.companyName}`,
-                html: `
-                    <h2>Nouvelle Demande de Partenariat</h2>
-                    <p><strong>Entreprise:</strong> ${data.companyName}</p>
-                    <p><strong>Contact:</strong> ${data.contactFirstName} ${data.contactName}</p>
-                    <p><strong>Email:</strong> ${data.partEmail}</p>
-                    <p><strong>Téléphone:</strong> ${data.partPhone}</p>
-                    <p><strong>Type:</strong> ${partnershipTypes[data.partnershipType]}</p>
-                    <p><strong>Message:</strong><br>${data.partMessage.replace(/\n/g, '<br>')}</p>
-                `
-            });
+            const mailBody = `
+DEMANDE DE PARTENARIAT
+
+ENTREPRISE: ${data.companyName}
+CONTACT: ${data.contactFirstName} ${data.contactName}
+EMAIL: ${data.partEmail}
+TÉLÉPHONE: ${data.partPhone}
+
+TYPE DE PARTENARIAT: ${partnershipTypes[data.partnershipType]}
+
+MESSAGE:
+${data.partMessage}
+            `;
+
+            sendMailto('contact@guyanevents.fr', `🤝 Proposition de Partenariat - ${data.companyName}`, mailBody);
 
             const successMsg = document.getElementById('partSuccessMessage');
             successMsg.classList.add('show');
             this.reset();
+
+            setTimeout(() => {
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            }, 1000);
 
             setTimeout(() => {
                 successMsg.classList.remove('show');
@@ -430,7 +442,6 @@ if (partnershipForm) {
         } catch (error) {
             const errorMsg = document.getElementById('partErrorMessage');
             errorMsg.classList.add('show');
-        } finally {
             submitBtn.textContent = originalBtnText;
             submitBtn.disabled = false;
         }
@@ -774,20 +785,33 @@ if (demoForm) {
         submitBtn.disabled = true;
 
         try {
-            await sendEmail({
-                to: 'contact@guyanevents.fr',
-                reply_to: data.email,
-                subject: `🔥 Inscription Démos - ${data.firstName} ${data.lastName}`,
-                html: `
-                    <h2>Inscription Démos Street Workout</h2>
-                    <p><strong>Nom:</strong> ${data.firstName} ${data.lastName}</p>
-                    <p><strong>Email:</strong> ${data.email || 'Non renseigné'}</p>
-                    <p><strong>Téléphone:</strong> ${data.phone}</p>
-                    <p><strong>Activité:</strong> ${activityLabels[data.activity]}</p>
-                    <p><strong>Niveau:</strong> ${levelLabels[data.level]}</p>
-                    <p><strong>Commentaires:</strong> ${data.comments || 'Aucun'}</p>
-                `
-            });
+            const activityLabels = {
+                'demos': '💪 Démonstrations (Spectateur)',
+                'initiation': '🏅 Initiation (Essayer les barres)',
+                'concours': '🏆 Concours de Pompes',
+                'all': '🔥 Tout ! (Initiation + Concours)'
+            };
+            const levelLabels = {
+                'beginner': 'Débutant',
+                'intermediate': 'Intermédiaire',
+                'advanced': 'Confirmé'
+            };
+
+            const mailBody = `
+INSCRIPTION DÉMOS STREET WORKOUT
+
+NOM/PRÉNOM: ${data.firstName} ${data.lastName}
+EMAIL: ${data.email || 'Non renseigné'}
+TÉLÉPHONE: ${data.phone}
+
+ACTIVITÉ: ${activityLabels[data.activity]}
+NIVEAU: ${levelLabels[data.level]}
+
+COMMENTAIRES:
+${data.comments || 'Aucun'}
+            `;
+
+            sendMailto('contact@guyanevents.fr', `🔥 Inscription Démos - ${data.firstName} ${data.lastName}`, mailBody);
 
             this.style.display = 'none';
             const successMessage = document.getElementById('demoSuccessMessage');
@@ -798,13 +822,16 @@ if (demoForm) {
             // Fermer automatiquement après 5 secondes
             setTimeout(() => {
                 closeDemoModal();
-                this.style.display = 'block'; // Réafficher le formulaire pour la prochaine fois
             }, 5000);
 
         } catch (error) {
             alert(`❌ Erreur: ${error.message || 'Une erreur est survenue. Veuillez réessayer.'}`);
             console.error('Erreur inscription démos:', error);
             this.style.display = 'block';
+            if (submitBtn) {
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            }
         } finally {
             submitBtn.textContent = originalBtnText;
             submitBtn.disabled = false;
