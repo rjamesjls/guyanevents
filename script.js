@@ -818,9 +818,6 @@ if (demoForm) {
                 submitBtn.innerHTML = originalBtnText;
                 submitBtn.disabled = false;
             }
-        } finally {
-            submitBtn.textContent = originalBtnText;
-            submitBtn.disabled = false;
         }
     });
 }
