@@ -19,7 +19,7 @@ export default async function handler(req, res) {
                 'Authorization': `Bearer ${RESEND_API_KEY}`,
             },
             body: JSON.stringify({
-                from: 'Soholang Cup <onboarding@resend.dev>',
+                from: 'Soholang Cup <contact@guyanevents.fr>',
                 to: [to || 'contact@guyanevents.fr'],
                 reply_to: req.body.reply_to || undefined,
                 subject: subject,
