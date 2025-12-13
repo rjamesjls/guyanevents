@@ -802,7 +802,7 @@ if (demoForm) {
             }, 5000);
 
         } catch (error) {
-            alert('Une erreur est survenue lors de l\'inscription. Veuillez réessayer.');
+            alert(`❌ Erreur: ${error.message || 'Une erreur est survenue. Veuillez réessayer.'}`);
             console.error('Erreur inscription démos:', error);
             this.style.display = 'block';
         } finally {
