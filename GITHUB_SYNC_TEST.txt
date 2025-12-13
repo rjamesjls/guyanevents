@@ -1,2 +1,0 @@
-Proof of sync - 2025-12-13
-If you see this file, the push worked.
